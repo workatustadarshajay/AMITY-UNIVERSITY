@@ -1,0 +1,9 @@
+{
+  "mode": "batch-only",
+  "spark_version": "4.3.0",
+  "java_version": "22.0.2",
+  "batch": {
+    "rows": 9278,
+    "wall_seconds": 5.307
+  }
+}
