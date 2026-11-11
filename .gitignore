@@ -5,3 +5,7 @@ data/
 *.csv
 !assignment2/output/*.csv
 *.xlsx
+
+# assignment 5 : keep the summary CSVs, not the protected data
+!assignment5/output/**/*.csv
+assignment5/output/protected/*.csv

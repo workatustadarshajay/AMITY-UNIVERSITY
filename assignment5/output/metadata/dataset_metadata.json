@@ -1,0 +1,54 @@
+{
+  "name": "UCI Adult (Census Income)",
+  "source": "https://archive.ics.uci.edu/dataset/2/adult",
+  "source_file_sha256": "26b38f8623766396e2ba0d1a235a283db8ed993cc32bf32fc8aab09708c3bdf2",
+  "rows_raw": 48842,
+  "rows_clean": 48790,
+  "rows_published": 45165,
+  "rows_quarantined": 0,
+  "columns_published": [
+    "workclass",
+    "education-num",
+    "marital-status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "capital-gain",
+    "capital-loss",
+    "hours-per-week",
+    "income",
+    "capital_gain_topcoded",
+    "age_band",
+    "native_region"
+  ],
+  "classification_counts": {
+    "quasi-identifier": 9,
+    "non-sensitive": 1,
+    "sensitive attribute": 4,
+    "quasi-identifier and sensitive attribute": 1
+  },
+  "owner": "[to be assigned by the data governance council]",
+  "retention": "[to be set by policy; example: 1 year after the analysis ends]",
+  "lineage": [
+    {
+      "step": "ingest",
+      "source": "data\\adult.csv",
+      "sha256": "26b38f8623766396e2ba0d1a235a283db8ed993cc32bf32fc8aab09708c3bdf2",
+      "rows": 48842
+    },
+    {
+      "step": "clean",
+      "rows_in": 48842,
+      "rows_out": 48790,
+      "actions": 6
+    },
+    {
+      "step": "protect",
+      "rows_in": 48790,
+      "rows_out": 45165,
+      "k_threshold": 5
+    }
+  ],
+  "generated_at_utc": "2026-11-11T05:25:07+00:00"
+}

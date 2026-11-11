@@ -1,0 +1,14 @@
+rule,rows_failing_before,rows_failing_after
+missing_workclass,2799,0
+missing_occupation,2809,0
+missing_native_country,857,0
+income_trailing_period,16281,0
+income_invalid_value,0,0
+exact_duplicate_rows,29,0
+whitespace_in_text_cells,0,0
+age_out_of_range,0,0
+hours_out_of_range,0,0
+education_num_out_of_range,0,0
+negative_capital_values,0,0
+education_to_education_num_conflicts,0,0
+capital_gain_topcode_99999,244,244

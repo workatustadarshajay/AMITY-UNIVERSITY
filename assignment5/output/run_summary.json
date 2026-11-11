@@ -1,0 +1,39 @@
+{
+  "steps": [
+    {
+      "step": "ingest",
+      "status": "succeeded",
+      "seconds": 0.384
+    },
+    {
+      "step": "profile_before",
+      "status": "succeeded",
+      "seconds": 0.231
+    },
+    {
+      "step": "clean",
+      "status": "succeeded",
+      "seconds": 0.303
+    },
+    {
+      "step": "profile_after",
+      "status": "succeeded",
+      "seconds": 0.209
+    },
+    {
+      "step": "protect",
+      "status": "succeeded",
+      "seconds": 0.135
+    },
+    {
+      "step": "publish",
+      "status": "succeeded",
+      "seconds": 0.186
+    }
+  ],
+  "rows": {
+    "raw": 48842,
+    "clean": 48790,
+    "published": 45165
+  }
+}

@@ -1,0 +1,16 @@
+column,type,description,role,sensitivity,allowed,nullable,protected_output
+age,integer,Age in years,feature,quasi-identifier,17-90,False,generalised to 10-year bands (age_band)
+workclass,categorical,Type of employer,feature,quasi-identifier,employer categories,True,kept; missing values set to Unknown
+fnlwgt,integer,"Census sampling weight (describes the sample, not a person)",dropped (data minimisation),non-sensitive,positive integer,False,removed: not needed for the governance use case
+education,categorical,Highest education level,dropped (duplicate of education-num),quasi-identifier,education levels,False,removed: redundant with education-num
+education-num,integer,"Years of education, ordinal 1-16",feature,quasi-identifier,1-16,False,kept
+marital-status,categorical,Marital status,feature,quasi-identifier,marital categories,False,kept
+occupation,categorical,Occupation,feature,quasi-identifier,occupation categories,True,kept; missing values set to Unknown
+relationship,categorical,Family role in household,feature,quasi-identifier,relationship categories,False,kept
+race,categorical,Race (self-reported),feature,sensitive attribute (special category where GDPR applies),race categories,False,kept; used only inside aggregate analysis
+sex,categorical,Sex (Male or Female),feature,quasi-identifier and sensitive attribute,"Male, Female",False,kept
+capital-gain,integer,Capital gains in the year (USD),feature,sensitive attribute (financial),>= 0,False,kept; flag added where value is 99999 (top-code)
+capital-loss,integer,Capital losses in the year (USD),feature,sensitive attribute (financial),>= 0,False,kept
+hours-per-week,integer,Usual hours worked per week,feature,quasi-identifier,1-99,False,kept
+native-country,categorical,Native country,feature,quasi-identifier,country names,True,generalised to United-States or Non-US (native_region)
+income,categorical,Income above or below 50K USD per year,label,sensitive attribute,"<=50K, >50K",False,kept; trailing period removed

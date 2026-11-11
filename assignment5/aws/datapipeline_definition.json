@@ -1,0 +1,55 @@
+{
+  "objects": [
+    {
+      "id": "Default",
+      "name": "Default",
+      "scheduleType": "ondemand",
+      "failureAndRerunMode": "CASCADE",
+      "role": "DataPipelineDefaultRole",
+      "resourceRole": "DataPipelineDefaultResourceRole",
+      "pipelineLogUri": "s3://<governance-bucket>/logs/"
+    },
+    {
+      "id": "RawAdultData",
+      "name": "RawAdultData",
+      "type": "S3DataNode",
+      "directoryPath": "s3://<governance-bucket>/raw/adult/"
+    },
+    {
+      "id": "ProtectedAdultData",
+      "name": "ProtectedAdultData",
+      "type": "S3DataNode",
+      "directoryPath": "s3://<governance-bucket>/protected/adult/"
+    },
+    {
+      "id": "GovernanceEc2",
+      "name": "GovernanceEc2",
+      "type": "Ec2Resource",
+      "instanceType": "t2.micro",
+      "terminateAfter": "60 Minutes",
+      "role": "DataPipelineDefaultRole",
+      "resourceRole": "DataPipelineDefaultResourceRole"
+    },
+    {
+      "id": "RunGovernancePipeline",
+      "name": "RunGovernancePipeline",
+      "type": "ShellCommandActivity",
+      "runsOn": { "ref": "GovernanceEc2" },
+      "input": { "ref": "RawAdultData" },
+      "output": { "ref": "ProtectedAdultData" },
+      "scriptUri": "s3://<governance-bucket>/code/assignment5.zip",
+      "command": "pip3 install -q pandas && python3 pipeline.py --raw ${INPUT1_STAGING_DIR}/adult.csv --out ${OUTPUT1_STAGING_DIR}",
+      "onFail": { "ref": "GovernanceFailureAlarm" }
+    },
+    {
+      "id": "GovernanceFailureAlarm",
+      "name": "GovernanceFailureAlarm",
+      "type": "SnsAlarm",
+      "topicArn": "arn:aws:sns:<region>:<account-id>:governance-alerts",
+      "subject": "Governance pipeline failed",
+      "message": "The Adult governance pipeline failed. Check pipeline.log in the pipeline logs folder."
+    }
+  ],
+  "parameters": [],
+  "values": []
+}

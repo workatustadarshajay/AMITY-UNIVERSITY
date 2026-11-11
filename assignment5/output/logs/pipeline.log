@@ -1,0 +1,14 @@
+2026-11-11 10:55:05,985 INFO step ingest: start
+2026-11-11 10:55:06,379 INFO   48842 rows, sha256 26b38f8623766396e2ba0d1a235a283db8ed993cc32bf32fc8aab09708c3bdf2
+2026-11-11 10:55:06,379 INFO step ingest: succeeded in 0.384s
+2026-11-11 10:55:06,379 INFO step profile_before: start
+2026-11-11 10:55:06,605 INFO step profile_before: succeeded in 0.231s
+2026-11-11 10:55:06,605 INFO step clean: start
+2026-11-11 10:55:06,908 INFO step clean: succeeded in 0.303s
+2026-11-11 10:55:06,908 INFO step profile_after: start
+2026-11-11 10:55:07,112 INFO step profile_after: succeeded in 0.209s
+2026-11-11 10:55:07,112 INFO step protect: start
+2026-11-11 10:55:07,258 INFO step protect: succeeded in 0.135s
+2026-11-11 10:55:07,258 INFO step publish: start
+2026-11-11 10:55:07,443 INFO step publish: succeeded in 0.186s
+2026-11-11 10:55:07,443 INFO pipeline finished: 48842 raw -> 48790 clean -> 45165 published

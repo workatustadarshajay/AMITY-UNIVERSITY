@@ -1,0 +1,38 @@
+{
+  "data_minimisation": "dropped education (duplicate of education-num), fnlwgt (sampling weight), and the raw age and native-country (replaced by generalised columns)",
+  "k_threshold": 5,
+  "quasi_identifiers_before": [
+    "age",
+    "sex",
+    "race",
+    "marital-status",
+    "native-country",
+    "occupation"
+  ],
+  "quasi_identifiers_after": [
+    "age_band",
+    "sex",
+    "race",
+    "marital-status",
+    "native_region",
+    "occupation"
+  ],
+  "before_generalisation_and_suppression": {
+    "k_min": 1,
+    "groups": 12097,
+    "rows_in_groups_below_k": 14230
+  },
+  "after_generalisation_only": {
+    "k_min": 1,
+    "groups": 3055,
+    "rows_in_groups_below_k": 3625
+  },
+  "after_suppression": {
+    "k_min": 5,
+    "groups": 1010,
+    "rows_in_groups_below_k": 0
+  },
+  "rows_suppressed": 3625,
+  "rows_suppressed_share": 0.0743,
+  "rows_published": 45165
+}

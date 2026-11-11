@@ -1,0 +1,38 @@
+[
+  {
+    "rule": "missing_workclass",
+    "column": "workclass",
+    "rows_changed": 2799,
+    "fix": "kept the row, set missing value to 'Unknown' (not dropped)"
+  },
+  {
+    "rule": "missing_occupation",
+    "column": "occupation",
+    "rows_changed": 2809,
+    "fix": "kept the row, set missing value to 'Unknown' (not dropped)"
+  },
+  {
+    "rule": "missing_native_country",
+    "column": "native-country",
+    "rows_changed": 857,
+    "fix": "kept the row, set missing value to 'Unknown' (not dropped)"
+  },
+  {
+    "rule": "income_trailing_period",
+    "column": "income",
+    "rows_changed": 16281,
+    "fix": "removed trailing period so both splits use the same labels"
+  },
+  {
+    "rule": "exact_duplicate_rows",
+    "column": "all",
+    "rows_changed": 52,
+    "fix": "removed exact duplicate rows (after labels were normalised)"
+  },
+  {
+    "rule": "capital_gain_topcode_99999",
+    "column": "capital-gain",
+    "rows_changed": 244,
+    "fix": "value kept; flag column capital_gain_topcoded added (possible top-code, not corrected)"
+  }
+]
