@@ -1,0 +1,195 @@
+{
+  "spark_version": "4.3.0",
+  "master": "local[*]",
+  "java_version": "22.0.2",
+  "python_version": "3.12.8",
+  "default_parallelism": 16,
+  "rdd": {
+    "partitions": 2,
+    "rows": 150,
+    "first_record": [
+      "Iris-setosa",
+      [
+        5.1,
+        3.5,
+        1.4,
+        0.2
+      ]
+    ],
+    "avg_petal_length_by_species": {
+      "Iris-setosa": 1.464,
+      "Iris-versicolor": 4.26,
+      "Iris-virginica": 5.552
+    },
+    "count_by_species": {
+      "Iris-setosa": 50,
+      "Iris-versicolor": 50,
+      "Iris-virginica": 50
+    },
+    "groupByKey_matches_reduceByKey": true,
+    "max_per_feature": {
+      "sepal_length": 7.9,
+      "sepal_width": 4.4,
+      "petal_length": 6.9,
+      "petal_width": 2.5
+    },
+    "sum_sepal_length": 876.4999999999998
+  },
+  "dataframe": {
+    "schema": "struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>",
+    "rows_after_filter": 128,
+    "summary": [
+      {
+        "species": "Iris-setosa",
+        "n": 50,
+        "avg_sepal_length": 5.006,
+        "avg_sepal_width": 3.418,
+        "avg_petal_length": 1.464,
+        "avg_petal_width": 0.244,
+        "stddev_petal_length": 0.174
+      },
+      {
+        "species": "Iris-versicolor",
+        "n": 50,
+        "avg_sepal_length": 5.936,
+        "avg_sepal_width": 2.77,
+        "avg_petal_length": 4.26,
+        "avg_petal_width": 1.326,
+        "stddev_petal_length": 0.47
+      },
+      {
+        "species": "Iris-virginica",
+        "n": 50,
+        "avg_sepal_length": 6.588,
+        "avg_sepal_width": 2.974,
+        "avg_petal_length": 5.552,
+        "avg_petal_width": 2.026,
+        "stddev_petal_length": 0.552
+      }
+    ],
+    "top3_by_sepal_length": [
+      {
+        "sepal_length": 5.8,
+        "sepal_width": 4.0,
+        "petal_length": 1.2,
+        "petal_width": 0.2,
+        "species": "Iris-setosa",
+        "rank": 1
+      },
+      {
+        "sepal_length": 5.7,
+        "sepal_width": 4.4,
+        "petal_length": 1.5,
+        "petal_width": 0.4,
+        "species": "Iris-setosa",
+        "rank": 2
+      },
+      {
+        "sepal_length": 5.7,
+        "sepal_width": 3.8,
+        "petal_length": 1.7,
+        "petal_width": 0.3,
+        "species": "Iris-setosa",
+        "rank": 3
+      },
+      {
+        "sepal_length": 7.0,
+        "sepal_width": 3.2,
+        "petal_length": 4.7,
+        "petal_width": 1.4,
+        "species": "Iris-versicolor",
+        "rank": 1
+      },
+      {
+        "sepal_length": 6.9,
+        "sepal_width": 3.1,
+        "petal_length": 4.9,
+        "petal_width": 1.5,
+        "species": "Iris-versicolor",
+        "rank": 2
+      },
+      {
+        "sepal_length": 6.8,
+        "sepal_width": 2.8,
+        "petal_length": 4.8,
+        "petal_width": 1.4,
+        "species": "Iris-versicolor",
+        "rank": 3
+      },
+      {
+        "sepal_length": 7.9,
+        "sepal_width": 3.8,
+        "petal_length": 6.4,
+        "petal_width": 2.0,
+        "species": "Iris-virginica",
+        "rank": 1
+      },
+      {
+        "sepal_length": 7.7,
+        "sepal_width": 3.8,
+        "petal_length": 6.7,
+        "petal_width": 2.2,
+        "species": "Iris-virginica",
+        "rank": 2
+      },
+      {
+        "sepal_length": 7.7,
+        "sepal_width": 2.6,
+        "petal_length": 6.9,
+        "petal_width": 2.3,
+        "species": "Iris-virginica",
+        "rank": 3
+      }
+    ],
+    "joined": [
+      {
+        "species": "Iris-virginica",
+        "n": 50,
+        "description": "Largest flowers"
+      },
+      {
+        "species": "Iris-versicolor",
+        "n": 50,
+        "description": "Medium flowers, overlaps with virginica"
+      },
+      {
+        "species": "Iris-setosa",
+        "n": 50,
+        "description": "Small flowers, easiest to separate"
+      }
+    ],
+    "sql_result": [
+      {
+        "species": "Iris-setosa",
+        "avg_petal_length": 1.464
+      },
+      {
+        "species": "Iris-versicolor",
+        "avg_petal_length": 4.26
+      },
+      {
+        "species": "Iris-virginica",
+        "avg_petal_length": 5.552
+      }
+    ]
+  },
+  "in_memory": {
+    "rows": 300000,
+    "storage_level_before_cache": "Serialized 1x Replicated",
+    "recompute_seconds": 0.33752279996406287,
+    "storage_level_after_cache": "Memory Serialized 1x Replicated",
+    "cached_seconds": 0.2782768999459222,
+    "speedup": 1.21
+  },
+  "spark_ui": {
+    "ui_url": "http://10.11.87.32:4040",
+    "app_id": "local-1794373456031",
+    "exported": {
+      "jobs": 46,
+      "stages": 73,
+      "storage/rdd": 1,
+      "executors": 1,
+      "sql": 17
+    }
+  }
+}

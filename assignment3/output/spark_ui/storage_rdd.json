@@ -1,0 +1,169 @@
+[
+  {
+    "id": 133,
+    "name": "AdaptiveSparkPlan isFinalPlan=false\n+- BroadcastNestedLoopJoin BuildLeft, Cross\n   :- BroadcastExchange IdentityBroadcastMode, [plan_id=903]\n   :  +- Filter (isnotnull(species#290) AND NOT (species#290 = class))\n   :     +- FileScan csv [sepal_length#286,sepal_width#287,petal_length#288,petal_width#289,species#290] Batched: false, DataFilters: [isnotnull(species#290), NOT (species#290 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>\n   +- Project [id#292L AS replica#293L]\n      +- Range (0, 2000, step=1, splits=16)\n",
+    "numPartitions": 16,
+    "numCachedPartitions": 16,
+    "storageLevel": "Memory Serialized 1x Replicated",
+    "memoryUsed": 279227,
+    "diskUsed": 0,
+    "dataDistribution": [
+      {
+        "address": "10.11.87.32:63744",
+        "memoryUsed": 279227,
+        "memoryRemaining": 453409608,
+        "diskUsed": 0,
+        "onHeapMemoryUsed": 279227,
+        "offHeapMemoryUsed": 0,
+        "onHeapMemoryRemaining": 453409608,
+        "offHeapMemoryRemaining": 0
+      }
+    ],
+    "partitions": [
+      {
+        "blockName": "rdd_133_15",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17406,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_6",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17407,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_13",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17402,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_14",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17409,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_7",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17402,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_4",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17406,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_5",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17401,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_0",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17768,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_3",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17401,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_12",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17414,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_1",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17773,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_11",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17403,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_9",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17400,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_10",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17406,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_2",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17421,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      },
+      {
+        "blockName": "rdd_133_8",
+        "storageLevel": "Memory Serialized 1x Replicated",
+        "memoryUsed": 17408,
+        "diskUsed": 0,
+        "executors": [
+          "driver"
+        ]
+      }
+    ]
+  }
+]

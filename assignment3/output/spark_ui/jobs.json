@@ -1,0 +1,1200 @@
+[
+  {
+    "jobId": 45,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:08.005GMT",
+    "completionTime": "2026-11-11T05:05:08.024GMT",
+    "stageIds": [
+      71,
+      72
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-16"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 17,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 16,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 44,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:07.834GMT",
+    "completionTime": "2026-11-11T05:05:07.989GMT",
+    "stageIds": [
+      70
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-16"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 43,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:07.768GMT",
+    "completionTime": "2026-11-11T05:05:07.790GMT",
+    "stageIds": [
+      68,
+      69
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-15"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 17,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 16,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 42,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:07.559GMT",
+    "completionTime": "2026-11-11T05:05:07.753GMT",
+    "stageIds": [
+      67
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-15"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 41,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:07.484GMT",
+    "completionTime": "2026-11-11T05:05:07.509GMT",
+    "stageIds": [
+      65,
+      66
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-14"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 17,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 16,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 40,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:07.165GMT",
+    "completionTime": "2026-11-11T05:05:07.454GMT",
+    "stageIds": [
+      64
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-14"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 39,
+    "name": "$anonfun$withThreadLocalCaptured$1 at <unknown>:0",
+    "submissionTime": "2026-11-11T05:05:07.050GMT",
+    "completionTime": "2026-11-11T05:05:07.083GMT",
+    "stageIds": [
+      62,
+      63
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-13"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 17,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 16,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 38,
+    "name": "$anonfun$withThreadLocalCaptured$1 at <unknown>:0",
+    "submissionTime": "2026-11-11T05:05:06.764GMT",
+    "completionTime": "2026-11-11T05:05:07.032GMT",
+    "stageIds": [
+      61
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-13"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 37,
+    "name": "count at <unknown>:0",
+    "submissionTime": "2026-11-11T05:05:06.380GMT",
+    "completionTime": "2026-11-11T05:05:06.723GMT",
+    "stageIds": [
+      60
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-13"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 36,
+    "name": "$anonfun$withThreadLocalCaptured$1 at <unknown>:0",
+    "submissionTime": "2026-11-11T05:05:06.321GMT",
+    "completionTime": "2026-11-11T05:05:06.342GMT",
+    "stageIds": [
+      59
+    ],
+    "jobTags": [
+      "broadcast exchange (runId 59b02041-23dd-4160-bba0-59a8ff73f6d4)",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-13"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 35,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:06.170GMT",
+    "completionTime": "2026-11-11T05:05:06.194GMT",
+    "stageIds": [
+      57,
+      58
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-12"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 17,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 16,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 34,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.973GMT",
+    "completionTime": "2026-11-11T05:05:06.152GMT",
+    "stageIds": [
+      56
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-12"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 33,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.940GMT",
+    "completionTime": "2026-11-11T05:05:05.956GMT",
+    "stageIds": [
+      55
+    ],
+    "jobTags": [
+      "broadcast exchange (runId 5a75569a-95a3-4d80-a70d-38560d3db151)",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-12"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 32,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.829GMT",
+    "completionTime": "2026-11-11T05:05:05.856GMT",
+    "stageIds": [
+      53,
+      54
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-11"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 17,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 16,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 31,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.631GMT",
+    "completionTime": "2026-11-11T05:05:05.810GMT",
+    "stageIds": [
+      52
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-11"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 30,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.605GMT",
+    "completionTime": "2026-11-11T05:05:05.620GMT",
+    "stageIds": [
+      51
+    ],
+    "jobTags": [
+      "broadcast exchange (runId 716ff36a-752b-4464-a8a1-5a7c6ecf21cc)",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-11"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 29,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.486GMT",
+    "completionTime": "2026-11-11T05:05:05.519GMT",
+    "stageIds": [
+      49,
+      50
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-10"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 17,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 16,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 28,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.127GMT",
+    "completionTime": "2026-11-11T05:05:05.455GMT",
+    "stageIds": [
+      48
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-10"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 27,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "submissionTime": "2026-11-11T05:05:05.038GMT",
+    "completionTime": "2026-11-11T05:05:05.061GMT",
+    "stageIds": [
+      47
+    ],
+    "jobTags": [
+      "broadcast exchange (runId 697898fa-fb84-4dc7-a9b3-eb6e5a704028)",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-10"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 26,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:137",
+    "submissionTime": "2026-11-11T05:05:04.657GMT",
+    "completionTime": "2026-11-11T05:05:04.673GMT",
+    "stageIds": [
+      44,
+      45,
+      46
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-5"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 3,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 2,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 2,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 25,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:137",
+    "submissionTime": "2026-11-11T05:05:04.593GMT",
+    "completionTime": "2026-11-11T05:05:04.637GMT",
+    "stageIds": [
+      42,
+      43
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-5"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 24,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:137",
+    "submissionTime": "2026-11-11T05:05:04.553GMT",
+    "completionTime": "2026-11-11T05:05:04.589GMT",
+    "stageIds": [
+      40,
+      41
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-5"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 23,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:137",
+    "submissionTime": "2026-11-11T05:05:04.430GMT",
+    "completionTime": "2026-11-11T05:05:04.506GMT",
+    "stageIds": [
+      39
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-5"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 22,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:131",
+    "submissionTime": "2026-11-11T05:05:03.843GMT",
+    "completionTime": "2026-11-11T05:05:03.877GMT",
+    "stageIds": [
+      37,
+      38
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-3"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 21,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:131",
+    "submissionTime": "2026-11-11T05:04:49.351GMT",
+    "completionTime": "2026-11-11T05:05:03.733GMT",
+    "stageIds": [
+      36
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-3"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 20,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:131",
+    "submissionTime": "2026-11-11T05:04:49.335GMT",
+    "completionTime": "2026-11-11T05:05:03.779GMT",
+    "stageIds": [
+      35
+    ],
+    "jobTags": [
+      "broadcast exchange (runId caece7d9-7193-430d-ae10-c00ea65ed5b3)",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-3"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 16,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 19,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:126",
+    "submissionTime": "2026-11-11T05:04:49.067GMT",
+    "completionTime": "2026-11-11T05:04:49.100GMT",
+    "stageIds": [
+      32,
+      33,
+      34
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-2"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 3,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 2,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 2,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 18,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:126",
+    "submissionTime": "2026-11-11T05:04:48.969GMT",
+    "completionTime": "2026-11-11T05:04:49.041GMT",
+    "stageIds": [
+      30,
+      31
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-2"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 17,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:126",
+    "submissionTime": "2026-11-11T05:04:48.855GMT",
+    "completionTime": "2026-11-11T05:04:48.969GMT",
+    "stageIds": [
+      28,
+      29
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-2"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 16,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:126",
+    "submissionTime": "2026-11-11T05:04:48.699GMT",
+    "completionTime": "2026-11-11T05:04:48.799GMT",
+    "stageIds": [
+      27
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-2"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 15,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:120",
+    "submissionTime": "2026-11-11T05:04:48.457GMT",
+    "completionTime": "2026-11-11T05:04:48.515GMT",
+    "stageIds": [
+      24,
+      25,
+      26
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-1"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 3,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 2,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 2,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 14,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:120",
+    "submissionTime": "2026-11-11T05:04:48.330GMT",
+    "completionTime": "2026-11-11T05:04:48.404GMT",
+    "stageIds": [
+      22,
+      23
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-1"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 13,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:120",
+    "submissionTime": "2026-11-11T05:04:48.225GMT",
+    "completionTime": "2026-11-11T05:04:48.323GMT",
+    "stageIds": [
+      20,
+      21
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-1"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 12,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:120",
+    "submissionTime": "2026-11-11T05:04:47.904GMT",
+    "completionTime": "2026-11-11T05:04:48.051GMT",
+    "stageIds": [
+      19
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-1"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 11,
+    "name": "$anonfun$withThreadLocalCaptured$1 at <unknown>:0",
+    "submissionTime": "2026-11-11T05:04:47.590GMT",
+    "completionTime": "2026-11-11T05:04:47.627GMT",
+    "stageIds": [
+      17,
+      18
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-0"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 1,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 10,
+    "name": "$anonfun$withThreadLocalCaptured$1 at <unknown>:0",
+    "submissionTime": "2026-11-11T05:04:47.314GMT",
+    "completionTime": "2026-11-11T05:04:47.543GMT",
+    "stageIds": [
+      16
+    ],
+    "jobTags": [
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c",
+      "spark-session-a7ef3f0c-97da-4193-89c8-1f6e857bea6c-execution-root-id-0"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 9,
+    "name": "reduce at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:88",
+    "submissionTime": "2026-11-11T05:04:43.340GMT",
+    "completionTime": "2026-11-11T05:04:45.304GMT",
+    "stageIds": [
+      15
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 2,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 2,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 8,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:84",
+    "submissionTime": "2026-11-11T05:04:39.452GMT",
+    "completionTime": "2026-11-11T05:04:43.323GMT",
+    "stageIds": [
+      12,
+      13,
+      14
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 6,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 4,
+    "numSkippedTasks": 2,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 4,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 7,
+    "name": "sortByKey at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:84",
+    "submissionTime": "2026-11-11T05:04:37.463GMT",
+    "completionTime": "2026-11-11T05:04:39.433GMT",
+    "stageIds": [
+      10,
+      11
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 4,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 2,
+    "numSkippedTasks": 2,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 2,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 6,
+    "name": "sortByKey at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:84",
+    "submissionTime": "2026-11-11T05:04:33.573GMT",
+    "completionTime": "2026-11-11T05:04:37.442GMT",
+    "stageIds": [
+      8,
+      9
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 4,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 4,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 4,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 5,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:80",
+    "submissionTime": "2026-11-11T05:04:29.504GMT",
+    "completionTime": "2026-11-11T05:04:33.536GMT",
+    "stageIds": [
+      6,
+      7
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 4,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 4,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 4,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 4,
+    "name": "countByKey at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:76",
+    "submissionTime": "2026-11-11T05:04:27.501GMT",
+    "completionTime": "2026-11-11T05:04:29.474GMT",
+    "stageIds": [
+      5
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 2,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 2,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 3,
+    "name": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:75",
+    "submissionTime": "2026-11-11T05:04:23.134GMT",
+    "completionTime": "2026-11-11T05:04:27.485GMT",
+    "stageIds": [
+      3,
+      4
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 4,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 4,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 4,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 2,
+    "name": "runJob at PythonRDD.scala:218",
+    "submissionTime": "2026-11-11T05:04:22.092GMT",
+    "completionTime": "2026-11-11T05:04:23.073GMT",
+    "stageIds": [
+      2
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 1,
+    "name": "count at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:69",
+    "submissionTime": "2026-11-11T05:04:20.115GMT",
+    "completionTime": "2026-11-11T05:04:22.074GMT",
+    "stageIds": [
+      1
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 2,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 2,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 0,
+    "name": "runJob at PythonRDD.scala:218",
+    "submissionTime": "2026-11-11T05:04:18.683GMT",
+    "completionTime": "2026-11-11T05:04:20.049GMT",
+    "stageIds": [
+      0
+    ],
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  }
+]

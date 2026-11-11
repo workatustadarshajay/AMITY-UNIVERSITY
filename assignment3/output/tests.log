@@ -1,0 +1,14 @@
+..                                                                       [100%]
+============================== warnings summary ===============================
+tests/test_iris_spark.py::test_rdd_counts_and_averages
+  C:\Python312\Lib\site-packages\pyspark\testing\utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+    require_minimum_pandas_version()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 41.82s
+ERROR: The process with PID 20816 (child process of PID 27904) could not be terminated.
+Reason: The operation attempted is not supported.
+ERROR: The process with PID 27904 (child process of PID 54748) could not be terminated.
+Reason: The operation attempted is not supported.
+ERROR: The process with PID 54748 (child process of PID 5056) could not be terminated.
+Reason: The operation attempted is not supported.

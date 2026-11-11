@@ -1,0 +1,4786 @@
+[
+  {
+    "id": 0,
+    "status": "COMPLETED",
+    "description": "count at <unknown>:0",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (14)\n+- == Final Plan ==\n   ResultQueryStage (8), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (7)\n      +- ShuffleQueryStage (6), Statistics(sizeInBytes=16.0 B, rowCount=1)\n         +- Exchange (5)\n            +- * HashAggregate (4)\n               +- * Project (3)\n                  +- * Filter (2)\n                     +- Scan csv  (1)\n+- == Initial Plan ==\n   HashAggregate (13)\n   +- Exchange (12)\n      +- HashAggregate (11)\n         +- Project (10)\n            +- Filter (9)\n               +- Scan csv  (1)\n\n\n(1) Scan csv \nOutput [2]: [sepal_length#0, species#4]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), IsNotNull(sepal_length), Not(EqualTo(species,class)), GreaterThanOrEqual(sepal_length,5.0)]\nReadSchema: struct<sepal_length:double,species:string>\n\n(2) Filter [codegen id : 1]\nInput [2]: [sepal_length#0, species#4]\nCondition : (((isnotnull(species#4) AND isnotnull(sepal_length#0)) AND NOT (species#4 = class)) AND (sepal_length#0 >= 5.0))\n\n(3) Project [codegen id : 1]\nOutput: []\nInput [2]: [sepal_length#0, species#4]\n\n(4) HashAggregate [codegen id : 1]\nInput: []\nKeys: []\nFunctions [1]: [partial_count(1)]\nAggregate Attributes [1]: [count#15L]\nResults [1]: [count#16L]\n\n(5) Exchange\nInput [1]: [count#16L]\nArguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=29]\n\n(6) ShuffleQueryStage\nOutput [1]: [count#16L]\nArguments: 0\n\n(7) HashAggregate [codegen id : 2]\nInput [1]: [count#16L]\nKeys: []\nFunctions [1]: [count(1)]\nAggregate Attributes [1]: [count(1)#14L]\nResults [1]: [count(1)#14L AS count#7L]\n\n(8) ResultQueryStage\nOutput [1]: [count#7L]\nArguments: 1\n\n(9) Filter\nInput [2]: [sepal_length#0, species#4]\nCondition : (((isnotnull(species#4) AND isnotnull(sepal_length#0)) AND NOT (species#4 = class)) AND (sepal_length#0 >= 5.0))\n\n(10) Project\nOutput: []\nInput [2]: [sepal_length#0, species#4]\n\n(11) HashAggregate\nInput: []\nKeys: []\nFunctions [1]: [partial_count(1)]\nAggregate Attributes [1]: [count#15L]\nResults [1]: [count#16L]\n\n(12) Exchange\nInput [1]: [count#16L]\nArguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=15]\n\n(13) HashAggregate\nInput [1]: [count#16L]\nKeys: []\nFunctions [1]: [count(1)]\nAggregate Attributes [1]: [count(1)#14L]\nResults [1]: [count(1)#14L AS count#7L]\n\n(14) AdaptiveSparkPlan\nOutput [1]: [count#7L]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:04:46.532GMT",
+    "duration": 1106,
+    "runningJobIds": [],
+    "successJobIds": [
+      10,
+      11
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 8,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "128"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "7 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [sepal_length#0,species#4] Batched: false, DataFilters: [isnotnull(species#4), isnotnull(sepal_length#0), NOT (species#4 = class), (sepal_length#0 >= 5.0)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), IsNotNull(sepal_length), Not(EqualTo(species,class)), GreaterThanOrEqual(sep..., ReadSchema: struct<sepal_length:double,species:string>"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "128"
+          }
+        ],
+        "desc": "Filter (((isnotnull(species#4) AND isnotnull(sepal_length#0)) AND NOT (species#4 = class)) AND (sepal_length#0 >= 5.0))"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 1,
+        "metrics": [],
+        "desc": "Project"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "time in aggregation build",
+            "value": "120 ms"
+          },
+          {
+            "name": "number of output rows",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[], functions=[partial_count(1)])"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "136 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "1"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "1"
+          },
+          {
+            "name": "local bytes read",
+            "value": "59.0 B"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "1"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "16.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "4 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "59.0 B"
+          }
+        ],
+        "desc": "Exchange SinglePartition, ENSURE_REQUIREMENTS, [plan_id=29]"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "time in aggregation build",
+            "value": "3 ms"
+          },
+          {
+            "name": "number of output rows",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[], functions=[count(1)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "4 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 5,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 5
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      }
+    ],
+    "queryId": "01a1c8fe-8798-7f5a-ad70-35fceaf17e19",
+    "errorMessage": "",
+    "rootExecutionId": 0,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 1,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:120",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (19)\n+- == Final Plan ==\n   ResultQueryStage (12), Statistics(sizeInBytes=8.0 EiB)\n   +- * Sort (11)\n      +- AQEShuffleRead (10), coalesced\n         +- ShuffleQueryStage (9), Statistics(sizeInBytes=240.0 B, rowCount=3)\n            +- Exchange (8)\n               +- * HashAggregate (7)\n                  +- AQEShuffleRead (6), coalesced\n                     +- ShuffleQueryStage (5), Statistics(sizeInBytes=384.0 B, rowCount=3)\n                        +- Exchange (4)\n                           +- * HashAggregate (3)\n                              +- * Filter (2)\n                                 +- Scan csv  (1)\n+- == Initial Plan ==\n   Sort (18)\n   +- Exchange (17)\n      +- HashAggregate (16)\n         +- Exchange (15)\n            +- HashAggregate (14)\n               +- Filter (13)\n                  +- Scan csv  (1)\n\n\n(1) Scan csv \nOutput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>\n\n(2) Filter [codegen id : 1]\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(3) HashAggregate [codegen id : 1]\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nKeys [1]: [species#4]\nFunctions [6]: [partial_count(1), partial_avg(sepal_length#0), partial_avg(sepal_width#1), partial_avg(petal_length#2), partial_avg(petal_width#3), partial_stddev(petal_length#2)]\nAggregate Attributes [12]: [count#52L, sum#53, count#54L, sum#55, count#56L, sum#57, count#58L, sum#59, count#60L, n#35, avg#36, m2#37]\nResults [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\n\n(4) Exchange\nInput [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=89]\n\n(5) ShuffleQueryStage\nOutput [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\nArguments: 0\n\n(6) AQEShuffleRead\nInput [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\nArguments: coalesced\n\n(7) HashAggregate [codegen id : 2]\nInput [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\nKeys [1]: [species#4]\nFunctions [6]: [count(1), avg(sepal_length#0), avg(sepal_width#1), avg(petal_length#2), avg(petal_width#3), stddev(petal_length#2)]\nAggregate Attributes [6]: [count(1)#30L, avg(sepal_length#0)#31, avg(sepal_width#1)#32, avg(petal_length#2)#33, avg(petal_width#3)#34, stddev(petal_length#2)#43]\nResults [7]: [species#4, count(1)#30L AS n#19L, round(avg(sepal_length#0)#31, 3) AS avg_sepal_length#20, round(avg(sepal_width#1)#32, 3) AS avg_sepal_width#21, round(avg(petal_length#2)#33, 3) AS avg_petal_length#22, round(avg(petal_width#3)#34, 3) AS avg_petal_width#23, round(stddev(petal_length#2)#43, 3) AS stddev_petal_length#24]\n\n(8) Exchange\nInput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: rangepartitioning(species#4 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=119]\n\n(9) ShuffleQueryStage\nOutput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: 1\n\n(10) AQEShuffleRead\nInput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: coalesced\n\n(11) Sort [codegen id : 3]\nInput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: [species#4 ASC NULLS FIRST], true, 0\n\n(12) ResultQueryStage\nOutput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: 2\n\n(13) Filter\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(14) HashAggregate\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nKeys [1]: [species#4]\nFunctions [6]: [partial_count(1), partial_avg(sepal_length#0), partial_avg(sepal_width#1), partial_avg(petal_length#2), partial_avg(petal_width#3), partial_stddev(petal_length#2)]\nAggregate Attributes [12]: [count#52L, sum#53, count#54L, sum#55, count#56L, sum#57, count#58L, sum#59, count#60L, n#35, avg#36, m2#37]\nResults [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\n\n(15) Exchange\nInput [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=67]\n\n(16) HashAggregate\nInput [13]: [species#4, count#61L, sum#62, count#63L, sum#64, count#65L, sum#66, count#67L, sum#68, count#69L, n#40, avg#41, m2#42]\nKeys [1]: [species#4]\nFunctions [6]: [count(1), avg(sepal_length#0), avg(sepal_width#1), avg(petal_length#2), avg(petal_width#3), stddev(petal_length#2)]\nAggregate Attributes [6]: [count(1)#30L, avg(sepal_length#0)#31, avg(sepal_width#1)#32, avg(petal_length#2)#33, avg(petal_width#3)#34, stddev(petal_length#2)#43]\nResults [7]: [species#4, count(1)#30L AS n#19L, round(avg(sepal_length#0)#31, 3) AS avg_sepal_length#20, round(avg(sepal_width#1)#32, 3) AS avg_sepal_width#21, round(avg(petal_length#2)#33, 3) AS avg_petal_length#22, round(avg(petal_width#3)#34, 3) AS avg_petal_width#23, round(stddev(petal_length#2)#43, 3) AS stddev_petal_length#24]\n\n(17) Exchange\nInput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: rangepartitioning(species#4 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=70]\n\n(18) Sort\nInput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: [species#4 ASC NULLS FIRST], true, 0\n\n(19) AdaptiveSparkPlan\nOutput [7]: [species#4, n#19L, avg_sepal_length#20, avg_sepal_width#21, avg_petal_length#22, avg_petal_width#23, stddev_petal_length#24]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:04:47.710GMT",
+    "duration": 813,
+    "runningJobIds": [],
+    "successJobIds": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 12,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [sepal_length#0,sepal_width#1,petal_length#2,petal_width#3,species#4] Batched: false, DataFilters: [isnotnull(species#4), NOT (species#4 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#4) AND NOT (species#4 = class))"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "25 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "256.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#4], functions=[partial_count(1), partial_avg(sepal_length#0), partial_avg(sepal_width#1), partial_avg(petal_length#2), partial_avg(petal_width#3), partial_stddev(petal_length#2)])"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "83 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "3"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "6"
+          },
+          {
+            "name": "local bytes read",
+            "value": "total (min, med, max (stageId: taskId))\n834.0 B (417.0 B, 417.0 B, 417.0 B (stage 21.0: task 29))"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "2"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "384.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "5 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "total (min, med, max (stageId: taskId))\n0 ms (0 ms, 0 ms, 0 ms (stage 21.0: task 29))"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "417.0 B"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=89]"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "426.0 B"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n2 ms (1 ms, 1 ms, 1 ms (stage 21.0: task 29))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n2.5 MiB (1280.0 KiB, 1280.0 KiB, 1280.0 KiB (stage 21.0: task 29))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "6"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "(min, med, max (stageId: taskId)):\n(1, 1, 1 (stage 21.0: task 29))"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#4], functions=[count(1), avg(sepal_length#0), avg(sepal_width#1), avg(petal_length#2), avg(petal_width#3), stddev(petal_length#2)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n27 ms (13 ms, 14 ms, 14 ms (stage 23.0: task 30))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "3"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "3"
+          },
+          {
+            "name": "local bytes read",
+            "value": "357.0 B"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "1"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "240.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "9 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "3"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "357.0 B"
+          }
+        ],
+        "desc": "Exchange rangepartitioning(species#4 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=119]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "0"
+          },
+          {
+            "name": "partition data size",
+            "value": "375.0 B"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "Sort",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "sort time",
+            "value": "2 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1088.0 KiB"
+          },
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          }
+        ],
+        "desc": "Sort [species#4 ASC NULLS FIRST], true, 0"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (3)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "31 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (3)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 12,
+        "toId": 11
+      }
+    ],
+    "queryId": "01a1c8fe-8c45-7a47-9fa3-5e437361805e",
+    "errorMessage": "",
+    "rootExecutionId": 1,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 2,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:126",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (27)\n+- == Final Plan ==\n   ResultQueryStage (16), Statistics(sizeInBytes=8.0 EiB)\n   +- * Sort (15)\n      +- AQEShuffleRead (14), coalesced\n         +- ShuffleQueryStage (13), Statistics(sizeInBytes=648.0 B, rowCount=9)\n            +- Exchange (12)\n               +- * Filter (11)\n                  +- Window (10)\n                     +- WindowGroupLimit (9)\n                        +- * Sort (8)\n                           +- AQEShuffleRead (7), coalesced\n                              +- ShuffleQueryStage (6), Statistics(sizeInBytes=576.0 B, rowCount=9)\n                                 +- Exchange (5)\n                                    +- WindowGroupLimit (4)\n                                       +- * Sort (3)\n                                          +- * Filter (2)\n                                             +- Scan csv  (1)\n+- == Initial Plan ==\n   Sort (26)\n   +- Exchange (25)\n      +- Filter (24)\n         +- Window (23)\n            +- WindowGroupLimit (22)\n               +- Sort (21)\n                  +- Exchange (20)\n                     +- WindowGroupLimit (19)\n                        +- Sort (18)\n                           +- Filter (17)\n                              +- Scan csv  (1)\n\n\n(1) Scan csv \nOutput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>\n\n(2) Filter [codegen id : 1]\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(3) Sort [codegen id : 1]\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4 ASC NULLS FIRST, sepal_length#0 DESC NULLS LAST], false, 0\n\n(4) WindowGroupLimit\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4], [sepal_length#0 DESC NULLS LAST], row_number(), 3, Partial\n\n(5) Exchange\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=206]\n\n(6) ShuffleQueryStage\nOutput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: 0\n\n(7) AQEShuffleRead\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: coalesced\n\n(8) Sort [codegen id : 2]\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4 ASC NULLS FIRST, sepal_length#0 DESC NULLS LAST], false, 0\n\n(9) WindowGroupLimit\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4], [sepal_length#0 DESC NULLS LAST], row_number(), 3, Final\n\n(10) Window\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [row_number() windowspecdefinition(species#4, sepal_length#0 DESC NULLS LAST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS rank#113], [species#4], [sepal_length#0 DESC NULLS LAST]\n\n(11) Filter [codegen id : 3]\nInput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nCondition : (rank#113 <= 3)\n\n(12) Exchange\nInput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: rangepartitioning(species#4 ASC NULLS FIRST, rank#113 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=260]\n\n(13) ShuffleQueryStage\nOutput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: 1\n\n(14) AQEShuffleRead\nInput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: coalesced\n\n(15) Sort [codegen id : 4]\nInput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: [species#4 ASC NULLS FIRST, rank#113 ASC NULLS FIRST], true, 0\n\n(16) ResultQueryStage\nOutput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: 2\n\n(17) Filter\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(18) Sort\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4 ASC NULLS FIRST, sepal_length#0 DESC NULLS LAST], false, 0\n\n(19) WindowGroupLimit\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4], [sepal_length#0 DESC NULLS LAST], row_number(), 3, Partial\n\n(20) Exchange\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=174]\n\n(21) Sort\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4 ASC NULLS FIRST, sepal_length#0 DESC NULLS LAST], false, 0\n\n(22) WindowGroupLimit\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [species#4], [sepal_length#0 DESC NULLS LAST], row_number(), 3, Final\n\n(23) Window\nInput [5]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4]\nArguments: [row_number() windowspecdefinition(species#4, sepal_length#0 DESC NULLS LAST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS rank#113], [species#4], [sepal_length#0 DESC NULLS LAST]\n\n(24) Filter\nInput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nCondition : (rank#113 <= 3)\n\n(25) Exchange\nInput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: rangepartitioning(species#4 ASC NULLS FIRST, rank#113 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=180]\n\n(26) Sort\nInput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: [species#4 ASC NULLS FIRST, rank#113 ASC NULLS FIRST], true, 0\n\n(27) AdaptiveSparkPlan\nOutput [6]: [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4, rank#113]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:04:48.616GMT",
+    "duration": 493,
+    "runningJobIds": [],
+    "successJobIds": [
+      16,
+      17,
+      18,
+      19
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 17,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [sepal_length#0,sepal_width#1,petal_length#2,petal_width#3,species#4] Batched: false, DataFilters: [isnotnull(species#4), NOT (species#4 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>"
+      },
+      {
+        "nodeId": 16,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#4) AND NOT (species#4 = class))"
+      },
+      {
+        "nodeId": 15,
+        "nodeName": "Sort",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "sort time",
+            "value": "3 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1088.0 KiB"
+          },
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          }
+        ],
+        "desc": "Sort [species#4 ASC NULLS FIRST, sepal_length#0 DESC NULLS LAST], false, 0"
+      },
+      {
+        "nodeId": 14,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "53 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 13,
+        "nodeName": "WindowGroupLimit",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "9"
+          }
+        ],
+        "desc": "WindowGroupLimit [species#4], [sepal_length#0 DESC NULLS LAST], row_number(), 3, Partial"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "9"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "18"
+          },
+          {
+            "name": "local bytes read",
+            "value": "total (min, med, max (stageId: taskId))\n880.0 B (440.0 B, 440.0 B, 440.0 B (stage 29.0: task 33))"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "2"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "576.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "8 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "total (min, med, max (stageId: taskId))\n0 ms (0 ms, 0 ms, 0 ms (stage 29.0: task 33))"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "440.0 B"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=206]"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "468.0 B"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "Sort",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "sort time",
+            "value": "total (min, med, max (stageId: taskId))\n0 ms (0 ms, 0 ms, 0 ms (stage 29.0: task 33))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n2.1 MiB (1088.0 KiB, 1088.0 KiB, 1088.0 KiB (stage 29.0: task 33))"
+          },
+          {
+            "name": "spill size",
+            "value": "total (min, med, max (stageId: taskId))\n0.0 B (0.0 B, 0.0 B, 0.0 B (stage 29.0: task 33))"
+          }
+        ],
+        "desc": "Sort [species#4 ASC NULLS FIRST, sepal_length#0 DESC NULLS LAST], false, 0"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n101 ms (18 ms, 83 ms, 83 ms (stage 29.0: task 33))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "WindowGroupLimit",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "18"
+          }
+        ],
+        "desc": "WindowGroupLimit [species#4], [sepal_length#0 DESC NULLS LAST], row_number(), 3, Final"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "Window",
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "total (min, med, max (stageId: taskId))\n0.0 B (0.0 B, 0.0 B, 0.0 B (stage 29.0: task 33))"
+          },
+          {
+            "name": "number of segment-tree frames prepared",
+            "value": "0"
+          },
+          {
+            "name": "number of segment-tree fallback frames prepared",
+            "value": "0"
+          }
+        ],
+        "desc": "Window [row_number() windowspecdefinition(species#4, sepal_length#0 DESC NULLS LAST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS rank#113], [species#4], [sepal_length#0 DESC NULLS LAST]"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "18"
+          }
+        ],
+        "desc": "Filter (rank#113 <= 3)"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (3)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n22 ms (10 ms, 12 ms, 12 ms (stage 31.0: task 34))"
+          }
+        ],
+        "desc": "WholeStageCodegen (3)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "9"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "9"
+          },
+          {
+            "name": "local bytes read",
+            "value": "865.0 B"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "1"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "648.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "19 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "865.0 B"
+          }
+        ],
+        "desc": "Exchange rangepartitioning(species#4 ASC NULLS FIRST, rank#113 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=260]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "0"
+          },
+          {
+            "name": "partition data size",
+            "value": "884.0 B"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "Sort",
+        "wholeStageCodegenId": 4,
+        "metrics": [
+          {
+            "name": "sort time",
+            "value": "0 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1088.0 KiB"
+          },
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          }
+        ],
+        "desc": "Sort [species#4 ASC NULLS FIRST, rank#113 ASC NULLS FIRST], true, 0"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (4)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "9 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (4)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 12,
+        "toId": 11
+      },
+      {
+        "fromId": 13,
+        "toId": 12
+      },
+      {
+        "fromId": 15,
+        "toId": 13
+      },
+      {
+        "fromId": 16,
+        "toId": 15
+      },
+      {
+        "fromId": 17,
+        "toId": 16
+      }
+    ],
+    "queryId": "01a1c8fe-8fdc-712e-9650-10787c0e4f61",
+    "errorMessage": "",
+    "rootExecutionId": 2,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 3,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:131",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (22)\n+- == Final Plan ==\n   ResultQueryStage (14), Statistics(sizeInBytes=8.0 EiB)\n   +- * Project (13)\n      +- * BroadcastHashJoin Inner BuildRight (12)\n         :- * HashAggregate (7)\n         :  +- AQEShuffleRead (6), coalesced\n         :     +- ShuffleQueryStage (5), Statistics(sizeInBytes=120.0 B, rowCount=3)\n         :        +- Exchange (4)\n         :           +- * HashAggregate (3)\n         :              +- * Filter (2)\n         :                 +- Scan csv  (1)\n         +- BroadcastQueryStage (11), Statistics(sizeInBytes=1025.0 KiB, rowCount=3)\n            +- BroadcastExchange (10)\n               +- * Filter (9)\n                  +- * Scan ExistingRDD (8)\n+- == Initial Plan ==\n   Project (21)\n   +- BroadcastHashJoin Inner BuildRight (20)\n      :- HashAggregate (18)\n      :  +- Exchange (17)\n      :     +- HashAggregate (16)\n      :        +- Filter (15)\n      :           +- Scan csv  (1)\n      +- BroadcastExchange (19)\n         +- Filter (9)\n            +- Scan ExistingRDD (8)\n\n\n(1) Scan csv \nOutput [1]: [species#4]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<species:string>\n\n(2) Filter [codegen id : 1]\nInput [1]: [species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(3) HashAggregate [codegen id : 1]\nInput [1]: [species#4]\nKeys [1]: [species#4]\nFunctions [1]: [partial_count(1)]\nAggregate Attributes [1]: [count#52L]\nResults [2]: [species#4, count#61L]\n\n(4) Exchange\nInput [2]: [species#4, count#61L]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=342]\n\n(5) ShuffleQueryStage\nOutput [2]: [species#4, count#61L]\nArguments: 0\n\n(6) AQEShuffleRead\nInput [2]: [species#4, count#61L]\nArguments: coalesced\n\n(7) HashAggregate [codegen id : 3]\nInput [2]: [species#4, count#61L]\nKeys [1]: [species#4]\nFunctions [1]: [count(1)]\nAggregate Attributes [1]: [count(1)#30L]\nResults [2]: [species#4, count(1)#30L AS n#19L]\n\n(8) Scan ExistingRDD [codegen id : 2]\nOutput [2]: [species#120, description#121]\nArguments: [species#120, description#121], MapPartitionsRDD[69] at applySchemaToPythonRDD at <unknown>:0, ExistingRDD, UnknownPartitioning(0)\n\n(9) Filter [codegen id : 2]\nInput [2]: [species#120, description#121]\nCondition : (NOT (species#120 = class) AND isnotnull(species#120))\n\n(10) BroadcastExchange\nInput [2]: [species#120, description#121]\nArguments: HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=359]\n\n(11) BroadcastQueryStage\nOutput [2]: [species#120, description#121]\nArguments: 1\n\n(12) BroadcastHashJoin [codegen id : 3]\nLeft keys [1]: [species#4]\nRight keys [1]: [species#120]\nJoin type: Inner\nJoin condition: None\n\n(13) Project [codegen id : 3]\nOutput [3]: [species#4, n#19L, description#121]\nInput [4]: [species#4, n#19L, species#120, description#121]\n\n(14) ResultQueryStage\nOutput [3]: [species#4, n#19L, description#121]\nArguments: 2\n\n(15) Filter\nInput [1]: [species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(16) HashAggregate\nInput [1]: [species#4]\nKeys [1]: [species#4]\nFunctions [1]: [partial_count(1)]\nAggregate Attributes [1]: [count#52L]\nResults [2]: [species#4, count#61L]\n\n(17) Exchange\nInput [2]: [species#4, count#61L]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=323]\n\n(18) HashAggregate\nInput [2]: [species#4, count#61L]\nKeys [1]: [species#4]\nFunctions [1]: [count(1)]\nAggregate Attributes [1]: [count(1)#30L]\nResults [2]: [species#4, count(1)#30L AS n#19L]\n\n(19) BroadcastExchange\nInput [2]: [species#120, description#121]\nArguments: HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=326]\n\n(20) BroadcastHashJoin\nLeft keys [1]: [species#4]\nRight keys [1]: [species#120]\nJoin type: Inner\nJoin condition: None\n\n(21) Project\nOutput [3]: [species#4, n#19L, description#121]\nInput [4]: [species#4, n#19L, species#120, description#121]\n\n(22) AdaptiveSparkPlan\nOutput [3]: [species#4, n#19L, description#121]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:04:49.206GMT",
+    "duration": 14677,
+    "runningJobIds": [],
+    "successJobIds": [
+      20,
+      21,
+      22
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 14,
+        "nodeName": "Scan ExistingRDD",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "3"
+          }
+        ],
+        "desc": "Scan ExistingRDD[species#120,description#121]"
+      },
+      {
+        "nodeId": 13,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "3"
+          }
+        ],
+        "desc": "Filter (NOT (species#120 = class) AND isnotnull(species#120))"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n1.8 m (153 ms, 7.1 s, 13.3 s (stage 35.0: task 48))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "BroadcastExchange",
+        "metrics": [
+          {
+            "name": "time to broadcast",
+            "value": "2 ms"
+          },
+          {
+            "name": "time to build",
+            "value": "9 ms"
+          },
+          {
+            "name": "time to collect",
+            "value": "14.5 s"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "data size",
+            "value": "1025.0 KiB"
+          }
+        ],
+        "desc": "BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=359]"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [species#4] Batched: false, DataFilters: [isnotnull(species#4), NOT (species#4 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<species:string>"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#4) AND NOT (species#4 = class))"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "14 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "256.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#4], functions=[partial_count(1)])"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "46 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "3"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "3"
+          },
+          {
+            "name": "local bytes read",
+            "value": "240.0 B"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "1"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "120.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "7 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "240.0 B"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=342]"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "240.0 B"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "1 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1280.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#4], functions=[count(1)])"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "BroadcastHashJoin",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "3"
+          }
+        ],
+        "desc": "BroadcastHashJoin [species#4], [species#120], Inner, BuildRight, false, false"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 3,
+        "metrics": [],
+        "desc": "Project [species#4, n#19L, description#121]"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (3)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "4 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (3)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 5,
+        "toId": 4
+      },
+      {
+        "fromId": 6,
+        "toId": 5
+      },
+      {
+        "fromId": 8,
+        "toId": 6
+      },
+      {
+        "fromId": 9,
+        "toId": 8
+      },
+      {
+        "fromId": 10,
+        "toId": 9
+      },
+      {
+        "fromId": 11,
+        "toId": 3
+      },
+      {
+        "fromId": 13,
+        "toId": 11
+      },
+      {
+        "fromId": 14,
+        "toId": 13
+      }
+    ],
+    "queryId": "01a1c8fe-9230-78cc-8494-3ba41ea87b49",
+    "errorMessage": "",
+    "rootExecutionId": 3,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 4,
+    "status": "COMPLETED",
+    "description": "createOrReplaceTempView at <unknown>:0",
+    "planDescription": "== Physical Plan ==\nExecute CreateViewCommand (1)\n   +- CreateViewCommand (2)\n         +- Filter (4)\n            +- LogicalRelation (3)\n\n\n(1) Execute CreateViewCommand\nOutput: []\n\n(2) CreateViewCommand\nArguments: `iris`, false, true, LocalTempView, UNSUPPORTED, true\n\n(3) LogicalRelation\nArguments: csv, [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4], false\n\n(4) Filter\nArguments: NOT (species#4 = class)\n\n",
+    "submissionTime": "2026-11-11T05:05:04.182GMT",
+    "duration": 21,
+    "runningJobIds": [],
+    "successJobIds": [],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 0,
+        "nodeName": "Execute CreateViewCommand",
+        "metrics": [],
+        "desc": "Execute CreateViewCommand"
+      }
+    ],
+    "edges": [],
+    "queryId": "01a1c8fe-ccb0-78e7-b6c9-64ce171fec4f",
+    "errorMessage": "",
+    "rootExecutionId": 4,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 5,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:137",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (19)\n+- == Final Plan ==\n   ResultQueryStage (12), Statistics(sizeInBytes=8.0 EiB)\n   +- * Sort (11)\n      +- AQEShuffleRead (10), coalesced\n         +- ShuffleQueryStage (9), Statistics(sizeInBytes=120.0 B, rowCount=3)\n            +- Exchange (8)\n               +- * HashAggregate (7)\n                  +- AQEShuffleRead (6), coalesced\n                     +- ShuffleQueryStage (5), Statistics(sizeInBytes=144.0 B, rowCount=3)\n                        +- Exchange (4)\n                           +- * HashAggregate (3)\n                              +- * Filter (2)\n                                 +- Scan csv  (1)\n+- == Initial Plan ==\n   Sort (18)\n   +- Exchange (17)\n      +- HashAggregate (16)\n         +- Exchange (15)\n            +- HashAggregate (14)\n               +- Filter (13)\n                  +- Scan csv  (1)\n\n\n(1) Scan csv \nOutput [2]: [petal_length#2, species#4]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<petal_length:double,species:string>\n\n(2) Filter [codegen id : 1]\nInput [2]: [petal_length#2, species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(3) HashAggregate [codegen id : 1]\nInput [2]: [petal_length#2, species#4]\nKeys [1]: [species#4]\nFunctions [1]: [partial_avg(petal_length#2)]\nAggregate Attributes [2]: [sum#125, count#126L]\nResults [3]: [species#4, sum#127, count#128L]\n\n(4) Exchange\nInput [3]: [species#4, sum#127, count#128L]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=443]\n\n(5) ShuffleQueryStage\nOutput [3]: [species#4, sum#127, count#128L]\nArguments: 0\n\n(6) AQEShuffleRead\nInput [3]: [species#4, sum#127, count#128L]\nArguments: coalesced\n\n(7) HashAggregate [codegen id : 2]\nInput [3]: [species#4, sum#127, count#128L]\nKeys [1]: [species#4]\nFunctions [1]: [avg(petal_length#2)]\nAggregate Attributes [1]: [avg(petal_length#2)#124]\nResults [2]: [species#4, round(avg(petal_length#2)#124, 3) AS avg_petal_length#123]\n\n(8) Exchange\nInput [2]: [species#4, avg_petal_length#123]\nArguments: rangepartitioning(species#4 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=473]\n\n(9) ShuffleQueryStage\nOutput [2]: [species#4, avg_petal_length#123]\nArguments: 1\n\n(10) AQEShuffleRead\nInput [2]: [species#4, avg_petal_length#123]\nArguments: coalesced\n\n(11) Sort [codegen id : 3]\nInput [2]: [species#4, avg_petal_length#123]\nArguments: [species#4 ASC NULLS FIRST], true, 0\n\n(12) ResultQueryStage\nOutput [2]: [species#4, avg_petal_length#123]\nArguments: 2\n\n(13) Filter\nInput [2]: [petal_length#2, species#4]\nCondition : (isnotnull(species#4) AND NOT (species#4 = class))\n\n(14) HashAggregate\nInput [2]: [petal_length#2, species#4]\nKeys [1]: [species#4]\nFunctions [1]: [partial_avg(petal_length#2)]\nAggregate Attributes [2]: [sum#125, count#126L]\nResults [3]: [species#4, sum#127, count#128L]\n\n(15) Exchange\nInput [3]: [species#4, sum#127, count#128L]\nArguments: hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=421]\n\n(16) HashAggregate\nInput [3]: [species#4, sum#127, count#128L]\nKeys [1]: [species#4]\nFunctions [1]: [avg(petal_length#2)]\nAggregate Attributes [1]: [avg(petal_length#2)#124]\nResults [2]: [species#4, round(avg(petal_length#2)#124, 3) AS avg_petal_length#123]\n\n(17) Exchange\nInput [2]: [species#4, avg_petal_length#123]\nArguments: rangepartitioning(species#4 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=424]\n\n(18) Sort\nInput [2]: [species#4, avg_petal_length#123]\nArguments: [species#4 ASC NULLS FIRST], true, 0\n\n(19) AdaptiveSparkPlan\nOutput [2]: [species#4, avg_petal_length#123]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:04.360GMT",
+    "duration": 321,
+    "runningJobIds": [],
+    "successJobIds": [
+      23,
+      24,
+      25,
+      26
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 12,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [petal_length#2,species#4] Batched: false, DataFilters: [isnotnull(species#4), NOT (species#4 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<petal_length:double,species:string>"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#4) AND NOT (species#4 = class))"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "10 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "256.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#4], functions=[partial_avg(petal_length#2)])"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "30 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "3"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "6"
+          },
+          {
+            "name": "local bytes read",
+            "value": "total (min, med, max (stageId: taskId))\n526.0 B (263.0 B, 263.0 B, 263.0 B (stage 41.0: task 55))"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "2"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "144.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "8 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "total (min, med, max (stageId: taskId))\n0 ms (0 ms, 0 ms, 0 ms (stage 41.0: task 55))"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "263.0 B"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=443]"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "273.0 B"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n2 ms (1 ms, 1 ms, 1 ms (stage 41.0: task 55))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n2.5 MiB (1280.0 KiB, 1280.0 KiB, 1280.0 KiB (stage 41.0: task 55))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "6"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "(min, med, max (stageId: taskId)):\n(1, 1, 1 (stage 41.0: task 55))"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#4], functions=[avg(petal_length#2)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n13 ms (4 ms, 9 ms, 9 ms (stage 43.0: task 56))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "3"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "3"
+          },
+          {
+            "name": "local bytes read",
+            "value": "252.0 B"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "1"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "120.0 B"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "8 ms"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "3"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "252.0 B"
+          }
+        ],
+        "desc": "Exchange rangepartitioning(species#4 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=473]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "0"
+          },
+          {
+            "name": "partition data size",
+            "value": "264.0 B"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "Sort",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "sort time",
+            "value": "0 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1088.0 KiB"
+          },
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          }
+        ],
+        "desc": "Sort [species#4 ASC NULLS FIRST], true, 0"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (3)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "3 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (3)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 12,
+        "toId": 11
+      }
+    ],
+    "queryId": "01a1c8fe-cd42-7bc6-9d1f-aabf48b7e45d",
+    "errorMessage": "",
+    "rootExecutionId": 5,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 6,
+    "status": "COMPLETED",
+    "description": "sql at <unknown>:0",
+    "planDescription": "== Physical Plan ==\nExecute ExplainCommand (1)\n   +- ExplainCommand (2)\n\n\n(1) Execute ExplainCommand\nOutput [1]: [plan#143]\n\n(2) ExplainCommand\nArguments: 'Sort ['species ASC NULLS FIRST], true, ExtendedMode\n\n",
+    "submissionTime": "2026-11-11T05:05:04.689GMT",
+    "duration": 50,
+    "runningJobIds": [],
+    "successJobIds": [],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 0,
+        "nodeName": "Execute ExplainCommand",
+        "metrics": [],
+        "desc": "Execute ExplainCommand"
+      }
+    ],
+    "edges": [],
+    "queryId": "01a1c8fe-ceb1-7cf7-bc01-b7128e3951a8",
+    "errorMessage": "",
+    "rootExecutionId": 6,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 7,
+    "status": "COMPLETED",
+    "description": "first at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:140",
+    "planDescription": "== Physical Plan ==\nCollectLimit (4)\n+- CommandResult (1)\n      +- Execute ExplainCommand (2)\n            +- ExplainCommand (3)\n\n\n(1) CommandResult\nOutput [1]: [plan#140]\nArguments: [plan#140]\n\n(2) Execute ExplainCommand\nOutput [1]: [plan#143]\n\n(3) ExplainCommand\nArguments: 'Sort ['species ASC NULLS FIRST], true, ExtendedMode\n\n(4) CollectLimit\nInput [1]: [plan#140]\nArguments: 1\n\n",
+    "submissionTime": "2026-11-11T05:05:04.755GMT",
+    "duration": 34,
+    "runningJobIds": [],
+    "successJobIds": [],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 1,
+        "nodeName": "CommandResult",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "1"
+          }
+        ],
+        "desc": "CommandResult [plan#140]"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "CollectLimit",
+        "metrics": [],
+        "desc": "CollectLimit 1"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 1,
+        "toId": 0
+      }
+    ],
+    "queryId": "01a1c8fe-ceef-7c45-b46f-005d71527e08",
+    "errorMessage": "",
+    "rootExecutionId": 7,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 8,
+    "status": "COMPLETED",
+    "description": "sql at <unknown>:0",
+    "planDescription": "== Physical Plan ==\nExecute ExplainCommand (1)\n   +- ExplainCommand (2)\n\n\n(1) Execute ExplainCommand\nOutput [1]: [plan#153]\n\n(2) ExplainCommand\nArguments: 'Project ['species, 'sepal_length, 'ROW_NUMBER() windowspecdefinition('species, 'sepal_length DESC NULLS LAST, unspecifiedframe$()) AS rank#149], ExtendedMode\n\n",
+    "submissionTime": "2026-11-11T05:05:04.808GMT",
+    "duration": 36,
+    "runningJobIds": [],
+    "successJobIds": [],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 0,
+        "nodeName": "Execute ExplainCommand",
+        "metrics": [],
+        "desc": "Execute ExplainCommand"
+      }
+    ],
+    "edges": [],
+    "queryId": "01a1c8fe-cf27-7f42-bf2b-b7e17de62b93",
+    "errorMessage": "",
+    "rootExecutionId": 8,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 9,
+    "status": "COMPLETED",
+    "description": "first at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:144",
+    "planDescription": "== Physical Plan ==\nCollectLimit (4)\n+- CommandResult (1)\n      +- Execute ExplainCommand (2)\n            +- ExplainCommand (3)\n\n\n(1) CommandResult\nOutput [1]: [plan#150]\nArguments: [plan#150]\n\n(2) Execute ExplainCommand\nOutput [1]: [plan#153]\n\n(3) ExplainCommand\nArguments: 'Project ['species, 'sepal_length, 'ROW_NUMBER() windowspecdefinition('species, 'sepal_length DESC NULLS LAST, unspecifiedframe$()) AS rank#149], ExtendedMode\n\n(4) CollectLimit\nInput [1]: [plan#150]\nArguments: 1\n\n",
+    "submissionTime": "2026-11-11T05:05:04.846GMT",
+    "duration": 11,
+    "runningJobIds": [],
+    "successJobIds": [],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 1,
+        "nodeName": "CommandResult",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "1"
+          }
+        ],
+        "desc": "CommandResult [plan#150]"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "CollectLimit",
+        "metrics": [],
+        "desc": "CollectLimit 1"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 1,
+        "toId": 0
+      }
+    ],
+    "queryId": "01a1c8fe-cf4e-7fee-89fe-bfd9708933a6",
+    "errorMessage": "",
+    "rootExecutionId": 9,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 10,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (20)\n+- == Final Plan ==\n   ResultQueryStage (13), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (12)\n      +- AQEShuffleRead (11), coalesced\n         +- ShuffleQueryStage (10), Statistics(sizeInBytes=3.0 KiB, rowCount=48)\n            +- Exchange (9)\n               +- * HashAggregate (8)\n                  +- * BroadcastNestedLoopJoin Cross BuildLeft (7)\n                     :- BroadcastQueryStage (4), Statistics(sizeInBytes=7.0 KiB, rowCount=150)\n                     :  +- BroadcastExchange (3)\n                     :     +- * Filter (2)\n                     :        +- Scan csv  (1)\n                     +- * Project (6)\n                        +- * Range (5)\n+- == Initial Plan ==\n   HashAggregate (19)\n   +- Exchange (18)\n      +- HashAggregate (17)\n         +- BroadcastNestedLoopJoin Cross BuildLeft (16)\n            :- BroadcastExchange (15)\n            :  +- Filter (14)\n            :     +- Scan csv  (1)\n            +- Project (6)\n               +- Range (5)\n\n\n(1) Scan csv \nOutput [3]: [sepal_width#164, petal_length#165, species#167]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_width:double,petal_length:double,species:string>\n\n(2) Filter [codegen id : 1]\nInput [3]: [sepal_width#164, petal_length#165, species#167]\nCondition : (isnotnull(species#167) AND NOT (species#167 = class))\n\n(3) BroadcastExchange\nInput [3]: [sepal_width#164, petal_length#165, species#167]\nArguments: IdentityBroadcastMode, [plan_id=607]\n\n(4) BroadcastQueryStage\nOutput [3]: [sepal_width#164, petal_length#165, species#167]\nArguments: 0\n\n(5) Range\nOutput [1]: [id#169L]\nArguments: Range (0, 2000, step=1, splits=Some(16))\n\n(6) Project\nOutput: []\nInput [1]: [id#169L]\n\n(7) BroadcastNestedLoopJoin [codegen id : 2]\nJoin type: Cross\nJoin condition: None\n\n(8) HashAggregate [codegen id : 2]\nInput [3]: [sepal_width#164, petal_length#165, species#167]\nKeys [1]: [species#167]\nFunctions [2]: [partial_avg(petal_length#165), partial_avg(sepal_width#164)]\nAggregate Attributes [4]: [sum#181, count#182L, sum#183, count#184L]\nResults [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\n\n(9) Exchange\nInput [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\nArguments: hashpartitioning(species#167, 8), ENSURE_REQUIREMENTS, [plan_id=646]\n\n(10) ShuffleQueryStage\nOutput [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\nArguments: 1\n\n(11) AQEShuffleRead\nInput [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\nArguments: coalesced\n\n(12) HashAggregate [codegen id : 3]\nInput [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\nKeys [1]: [species#167]\nFunctions [2]: [avg(petal_length#165), avg(sepal_width#164)]\nAggregate Attributes [2]: [avg(petal_length#165)#177, avg(sepal_width#164)#178]\nResults [3]: [species#167, avg(petal_length#165)#177 AS avg(petal_length)#179, avg(sepal_width#164)#178 AS avg(sepal_width)#180]\n\n(13) ResultQueryStage\nOutput [3]: [species#167, avg(petal_length)#179, avg(sepal_width)#180]\nArguments: 2\n\n(14) Filter\nInput [3]: [sepal_width#164, petal_length#165, species#167]\nCondition : (isnotnull(species#167) AND NOT (species#167 = class))\n\n(15) BroadcastExchange\nInput [3]: [sepal_width#164, petal_length#165, species#167]\nArguments: IdentityBroadcastMode, [plan_id=585]\n\n(16) BroadcastNestedLoopJoin\nJoin type: Cross\nJoin condition: None\n\n(17) HashAggregate\nInput [3]: [sepal_width#164, petal_length#165, species#167]\nKeys [1]: [species#167]\nFunctions [2]: [partial_avg(petal_length#165), partial_avg(sepal_width#164)]\nAggregate Attributes [4]: [sum#181, count#182L, sum#183, count#184L]\nResults [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\n\n(18) Exchange\nInput [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\nArguments: hashpartitioning(species#167, 8), ENSURE_REQUIREMENTS, [plan_id=589]\n\n(19) HashAggregate\nInput [5]: [species#167, sum#185, count#186L, sum#187, count#188L]\nKeys [1]: [species#167]\nFunctions [2]: [avg(petal_length#165), avg(sepal_width#164)]\nAggregate Attributes [2]: [avg(petal_length#165)#177, avg(sepal_width#164)#178]\nResults [3]: [species#167, avg(petal_length#165)#177 AS avg(petal_length)#179, avg(sepal_width#164)#178 AS avg(sepal_width)#180]\n\n(20) AdaptiveSparkPlan\nOutput [3]: [species#167, avg(petal_length)#179, avg(sepal_width)#180]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:04.958GMT",
+    "duration": 561,
+    "runningJobIds": [],
+    "successJobIds": [
+      27,
+      28,
+      29
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 13,
+        "nodeName": "Range",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "2,000"
+          }
+        ],
+        "desc": "Range (0, 2000, step=1, splits=16)"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 2,
+        "metrics": [],
+        "desc": "Project"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [sepal_width#164,petal_length#165,species#167] Batched: false, DataFilters: [isnotnull(species#167), NOT (species#167 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_width:double,petal_length:double,species:string>"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#167) AND NOT (species#167 = class))"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "11 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "BroadcastExchange",
+        "metrics": [
+          {
+            "name": "time to broadcast",
+            "value": "1 ms"
+          },
+          {
+            "name": "time to build",
+            "value": "0 ms"
+          },
+          {
+            "name": "time to collect",
+            "value": "49 ms"
+          },
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "data size",
+            "value": "7.0 KiB"
+          }
+        ],
+        "desc": "BroadcastExchange IdentityBroadcastMode, [plan_id=607]"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "BroadcastNestedLoopJoin",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "BroadcastNestedLoopJoin BuildLeft, Cross"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n1.5 s (75 ms, 98 ms, 115 ms (stage 48.0: task 64))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n4.0 MiB (256.0 KiB, 256.0 KiB, 256.0 KiB (stage 48.0: task 68))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "48"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#167], functions=[partial_avg(petal_length#165), partial_avg(sepal_width#164)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n2.2 s (106 ms, 138 ms, 171 ms (stage 48.0: task 59))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "48"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "48"
+          },
+          {
+            "name": "local bytes read",
+            "value": "4.6 KiB"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "16"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "total (min, med, max (stageId: taskId))\n3.0 KiB (192.0 B, 192.0 B, 192.0 B (stage 48.0: task 68))"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "total (min, med, max (stageId: taskId))\n371 ms (13 ms, 21 ms, 35 ms (stage 48.0: task 59))"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "total (min, med, max (stageId: taskId))\n4.6 KiB (297.0 B, 297.0 B, 297.0 B (stage 48.0: task 68))"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#167, 8), ENSURE_REQUIREMENTS, [plan_id=646]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "4.8 KiB"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "6 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1280.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#167], functions=[avg(petal_length#165), avg(sepal_width#164)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (3)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "8 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (3)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 12,
+        "toId": 7
+      },
+      {
+        "fromId": 13,
+        "toId": 12
+      }
+    ],
+    "queryId": "01a1c8fe-cfba-7ccd-91c3-efc614348b35",
+    "errorMessage": "",
+    "rootExecutionId": 10,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 11,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (20)\n+- == Final Plan ==\n   ResultQueryStage (13), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (12)\n      +- AQEShuffleRead (11), coalesced\n         +- ShuffleQueryStage (10), Statistics(sizeInBytes=3.0 KiB, rowCount=48)\n            +- Exchange (9)\n               +- * HashAggregate (8)\n                  +- * BroadcastNestedLoopJoin Cross BuildLeft (7)\n                     :- BroadcastQueryStage (4), Statistics(sizeInBytes=7.0 KiB, rowCount=150)\n                     :  +- BroadcastExchange (3)\n                     :     +- * Filter (2)\n                     :        +- Scan csv  (1)\n                     +- * Project (6)\n                        +- * Range (5)\n+- == Initial Plan ==\n   HashAggregate (19)\n   +- Exchange (18)\n      +- HashAggregate (17)\n         +- BroadcastNestedLoopJoin Cross BuildLeft (16)\n            :- BroadcastExchange (15)\n            :  +- Filter (14)\n            :     +- Scan csv  (1)\n            +- Project (6)\n               +- Range (5)\n\n\n(1) Scan csv \nOutput [3]: [sepal_width#205, petal_length#206, species#208]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_width:double,petal_length:double,species:string>\n\n(2) Filter [codegen id : 1]\nInput [3]: [sepal_width#205, petal_length#206, species#208]\nCondition : (isnotnull(species#208) AND NOT (species#208 = class))\n\n(3) BroadcastExchange\nInput [3]: [sepal_width#205, petal_length#206, species#208]\nArguments: IdentityBroadcastMode, [plan_id=716]\n\n(4) BroadcastQueryStage\nOutput [3]: [sepal_width#205, petal_length#206, species#208]\nArguments: 0\n\n(5) Range\nOutput [1]: [id#210L]\nArguments: Range (0, 2000, step=1, splits=Some(16))\n\n(6) Project\nOutput: []\nInput [1]: [id#210L]\n\n(7) BroadcastNestedLoopJoin [codegen id : 2]\nJoin type: Cross\nJoin condition: None\n\n(8) HashAggregate [codegen id : 2]\nInput [3]: [sepal_width#205, petal_length#206, species#208]\nKeys [1]: [species#208]\nFunctions [2]: [partial_avg(petal_length#206), partial_avg(sepal_width#205)]\nAggregate Attributes [4]: [sum#222, count#223L, sum#224, count#225L]\nResults [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\n\n(9) Exchange\nInput [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\nArguments: hashpartitioning(species#208, 8), ENSURE_REQUIREMENTS, [plan_id=755]\n\n(10) ShuffleQueryStage\nOutput [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\nArguments: 1\n\n(11) AQEShuffleRead\nInput [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\nArguments: coalesced\n\n(12) HashAggregate [codegen id : 3]\nInput [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\nKeys [1]: [species#208]\nFunctions [2]: [avg(petal_length#206), avg(sepal_width#205)]\nAggregate Attributes [2]: [avg(petal_length#206)#218, avg(sepal_width#205)#219]\nResults [3]: [species#208, avg(petal_length#206)#218 AS avg(petal_length)#220, avg(sepal_width#205)#219 AS avg(sepal_width)#221]\n\n(13) ResultQueryStage\nOutput [3]: [species#208, avg(petal_length)#220, avg(sepal_width)#221]\nArguments: 2\n\n(14) Filter\nInput [3]: [sepal_width#205, petal_length#206, species#208]\nCondition : (isnotnull(species#208) AND NOT (species#208 = class))\n\n(15) BroadcastExchange\nInput [3]: [sepal_width#205, petal_length#206, species#208]\nArguments: IdentityBroadcastMode, [plan_id=694]\n\n(16) BroadcastNestedLoopJoin\nJoin type: Cross\nJoin condition: None\n\n(17) HashAggregate\nInput [3]: [sepal_width#205, petal_length#206, species#208]\nKeys [1]: [species#208]\nFunctions [2]: [partial_avg(petal_length#206), partial_avg(sepal_width#205)]\nAggregate Attributes [4]: [sum#222, count#223L, sum#224, count#225L]\nResults [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\n\n(18) Exchange\nInput [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\nArguments: hashpartitioning(species#208, 8), ENSURE_REQUIREMENTS, [plan_id=698]\n\n(19) HashAggregate\nInput [5]: [species#208, sum#226, count#227L, sum#228, count#229L]\nKeys [1]: [species#208]\nFunctions [2]: [avg(petal_length#206), avg(sepal_width#205)]\nAggregate Attributes [2]: [avg(petal_length#206)#218, avg(sepal_width#205)#219]\nResults [3]: [species#208, avg(petal_length#206)#218 AS avg(petal_length)#220, avg(sepal_width#205)#219 AS avg(sepal_width)#221]\n\n(20) AdaptiveSparkPlan\nOutput [3]: [species#208, avg(petal_length)#220, avg(sepal_width)#221]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:05.563GMT",
+    "duration": 293,
+    "runningJobIds": [],
+    "successJobIds": [
+      30,
+      31,
+      32
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 13,
+        "nodeName": "Range",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "2,000"
+          }
+        ],
+        "desc": "Range (0, 2000, step=1, splits=16)"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 2,
+        "metrics": [],
+        "desc": "Project"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [sepal_width#205,petal_length#206,species#208] Batched: false, DataFilters: [isnotnull(species#208), NOT (species#208 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_width:double,petal_length:double,species:string>"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#208) AND NOT (species#208 = class))"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "5 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "BroadcastExchange",
+        "metrics": [
+          {
+            "name": "time to broadcast",
+            "value": "1 ms"
+          },
+          {
+            "name": "time to build",
+            "value": "0 ms"
+          },
+          {
+            "name": "time to collect",
+            "value": "32 ms"
+          },
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "data size",
+            "value": "7.0 KiB"
+          }
+        ],
+        "desc": "BroadcastExchange IdentityBroadcastMode, [plan_id=716]"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "BroadcastNestedLoopJoin",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "BroadcastNestedLoopJoin BuildLeft, Cross"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n564 ms (31 ms, 34 ms, 47 ms (stage 52.0: task 82))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n4.0 MiB (256.0 KiB, 256.0 KiB, 256.0 KiB (stage 52.0: task 89))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "48"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#208], functions=[partial_avg(petal_length#206), partial_avg(sepal_width#205)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n828 ms (42 ms, 52 ms, 62 ms (stage 52.0: task 82))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "48"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "48"
+          },
+          {
+            "name": "local bytes read",
+            "value": "4.6 KiB"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "16"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "total (min, med, max (stageId: taskId))\n3.0 KiB (192.0 B, 192.0 B, 192.0 B (stage 52.0: task 89))"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "total (min, med, max (stageId: taskId))\n193 ms (10 ms, 12 ms, 13 ms (stage 52.0: task 83))"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "total (min, med, max (stageId: taskId))\n4.6 KiB (297.0 B, 297.0 B, 297.0 B (stage 52.0: task 89))"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#208, 8), ENSURE_REQUIREMENTS, [plan_id=755]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "4.8 KiB"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "6 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1280.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#208], functions=[avg(petal_length#206), avg(sepal_width#205)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (3)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "8 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (3)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 12,
+        "toId": 7
+      },
+      {
+        "fromId": 13,
+        "toId": 12
+      }
+    ],
+    "queryId": "01a1c8fe-d20f-7235-875b-474da105e774",
+    "errorMessage": "",
+    "rootExecutionId": 11,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 12,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (20)\n+- == Final Plan ==\n   ResultQueryStage (13), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (12)\n      +- AQEShuffleRead (11), coalesced\n         +- ShuffleQueryStage (10), Statistics(sizeInBytes=3.0 KiB, rowCount=48)\n            +- Exchange (9)\n               +- * HashAggregate (8)\n                  +- * BroadcastNestedLoopJoin Cross BuildLeft (7)\n                     :- BroadcastQueryStage (4), Statistics(sizeInBytes=7.0 KiB, rowCount=150)\n                     :  +- BroadcastExchange (3)\n                     :     +- * Filter (2)\n                     :        +- Scan csv  (1)\n                     +- * Project (6)\n                        +- * Range (5)\n+- == Initial Plan ==\n   HashAggregate (19)\n   +- Exchange (18)\n      +- HashAggregate (17)\n         +- BroadcastNestedLoopJoin Cross BuildLeft (16)\n            :- BroadcastExchange (15)\n            :  +- Filter (14)\n            :     +- Scan csv  (1)\n            +- Project (6)\n               +- Range (5)\n\n\n(1) Scan csv \nOutput [3]: [sepal_width#246, petal_length#247, species#249]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_width:double,petal_length:double,species:string>\n\n(2) Filter [codegen id : 1]\nInput [3]: [sepal_width#246, petal_length#247, species#249]\nCondition : (isnotnull(species#249) AND NOT (species#249 = class))\n\n(3) BroadcastExchange\nInput [3]: [sepal_width#246, petal_length#247, species#249]\nArguments: IdentityBroadcastMode, [plan_id=825]\n\n(4) BroadcastQueryStage\nOutput [3]: [sepal_width#246, petal_length#247, species#249]\nArguments: 0\n\n(5) Range\nOutput [1]: [id#251L]\nArguments: Range (0, 2000, step=1, splits=Some(16))\n\n(6) Project\nOutput: []\nInput [1]: [id#251L]\n\n(7) BroadcastNestedLoopJoin [codegen id : 2]\nJoin type: Cross\nJoin condition: None\n\n(8) HashAggregate [codegen id : 2]\nInput [3]: [sepal_width#246, petal_length#247, species#249]\nKeys [1]: [species#249]\nFunctions [2]: [partial_avg(petal_length#247), partial_avg(sepal_width#246)]\nAggregate Attributes [4]: [sum#263, count#264L, sum#265, count#266L]\nResults [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\n\n(9) Exchange\nInput [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\nArguments: hashpartitioning(species#249, 8), ENSURE_REQUIREMENTS, [plan_id=864]\n\n(10) ShuffleQueryStage\nOutput [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\nArguments: 1\n\n(11) AQEShuffleRead\nInput [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\nArguments: coalesced\n\n(12) HashAggregate [codegen id : 3]\nInput [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\nKeys [1]: [species#249]\nFunctions [2]: [avg(petal_length#247), avg(sepal_width#246)]\nAggregate Attributes [2]: [avg(petal_length#247)#259, avg(sepal_width#246)#260]\nResults [3]: [species#249, avg(petal_length#247)#259 AS avg(petal_length)#261, avg(sepal_width#246)#260 AS avg(sepal_width)#262]\n\n(13) ResultQueryStage\nOutput [3]: [species#249, avg(petal_length)#261, avg(sepal_width)#262]\nArguments: 2\n\n(14) Filter\nInput [3]: [sepal_width#246, petal_length#247, species#249]\nCondition : (isnotnull(species#249) AND NOT (species#249 = class))\n\n(15) BroadcastExchange\nInput [3]: [sepal_width#246, petal_length#247, species#249]\nArguments: IdentityBroadcastMode, [plan_id=803]\n\n(16) BroadcastNestedLoopJoin\nJoin type: Cross\nJoin condition: None\n\n(17) HashAggregate\nInput [3]: [sepal_width#246, petal_length#247, species#249]\nKeys [1]: [species#249]\nFunctions [2]: [partial_avg(petal_length#247), partial_avg(sepal_width#246)]\nAggregate Attributes [4]: [sum#263, count#264L, sum#265, count#266L]\nResults [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\n\n(18) Exchange\nInput [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\nArguments: hashpartitioning(species#249, 8), ENSURE_REQUIREMENTS, [plan_id=807]\n\n(19) HashAggregate\nInput [5]: [species#249, sum#267, count#268L, sum#269, count#270L]\nKeys [1]: [species#249]\nFunctions [2]: [avg(petal_length#247), avg(sepal_width#246)]\nAggregate Attributes [2]: [avg(petal_length#247)#259, avg(sepal_width#246)#260]\nResults [3]: [species#249, avg(petal_length#247)#259 AS avg(petal_length)#261, avg(sepal_width#246)#260 AS avg(sepal_width)#262]\n\n(20) AdaptiveSparkPlan\nOutput [3]: [species#249, avg(petal_length)#261, avg(sepal_width)#262]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:05.901GMT",
+    "duration": 296,
+    "runningJobIds": [],
+    "successJobIds": [
+      33,
+      34,
+      35
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 13,
+        "nodeName": "Range",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "2,000"
+          }
+        ],
+        "desc": "Range (0, 2000, step=1, splits=16)"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 2,
+        "metrics": [],
+        "desc": "Project"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [sepal_width#246,petal_length#247,species#249] Batched: false, DataFilters: [isnotnull(species#249), NOT (species#249 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_width:double,petal_length:double,species:string>"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#249) AND NOT (species#249 = class))"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "5 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "BroadcastExchange",
+        "metrics": [
+          {
+            "name": "time to broadcast",
+            "value": "1 ms"
+          },
+          {
+            "name": "time to build",
+            "value": "0 ms"
+          },
+          {
+            "name": "time to collect",
+            "value": "29 ms"
+          },
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "data size",
+            "value": "7.0 KiB"
+          }
+        ],
+        "desc": "BroadcastExchange IdentityBroadcastMode, [plan_id=825]"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "BroadcastNestedLoopJoin",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "BroadcastNestedLoopJoin BuildLeft, Cross"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n31 ms (1 ms, 2 ms, 9 ms (stage 56.0: task 109))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n4.0 MiB (256.0 KiB, 256.0 KiB, 256.0 KiB (stage 56.0: task 100))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "48"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#249], functions=[partial_avg(petal_length#247), partial_avg(sepal_width#246)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n534 ms (17 ms, 36 ms, 44 ms (stage 56.0: task 107))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "48"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "48"
+          },
+          {
+            "name": "local bytes read",
+            "value": "4.6 KiB"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "16"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "total (min, med, max (stageId: taskId))\n3.0 KiB (192.0 B, 192.0 B, 192.0 B (stage 56.0: task 100))"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "total (min, med, max (stageId: taskId))\n490 ms (14 ms, 34 ms, 40 ms (stage 56.0: task 107))"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "total (min, med, max (stageId: taskId))\n4.6 KiB (297.0 B, 297.0 B, 297.0 B (stage 56.0: task 100))"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#249, 8), ENSURE_REQUIREMENTS, [plan_id=864]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "4.8 KiB"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 3,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "6 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1280.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#249], functions=[avg(petal_length#247), avg(sepal_width#246)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (3)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "8 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (3)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 12,
+        "toId": 7
+      },
+      {
+        "fromId": 13,
+        "toId": 12
+      }
+    ],
+    "queryId": "01a1c8fe-d36a-7f03-9ba4-a6b831113904",
+    "errorMessage": "",
+    "rootExecutionId": 12,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 13,
+    "status": "COMPLETED",
+    "description": "count at <unknown>:0",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (24)\n+- == Final Plan ==\n   ResultQueryStage (20), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (19)\n      +- ShuffleQueryStage (18), Statistics(sizeInBytes=256.0 B, rowCount=16)\n         +- Exchange (17)\n            +- * HashAggregate (16)\n               +- TableCacheQueryStage (15), Statistics(sizeInBytes=16.4 MiB, rowCount=3.00E+5)\n                  +- InMemoryTableScan (1)\n                        +- InMemoryRelation (2)\n                              +- AdaptiveSparkPlan (14)\n                              +- == Final Plan ==\n                                 ResultQueryStage (10)\n                                 +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                                    :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                                    :  +- BroadcastExchange (5)\n                                    :     +- * Filter (4)\n                                    :        +- Scan csv  (3)\n                                    +- * Project (8)\n                                       +- * Range (7)\n                              +- == Initial Plan ==\n                                 BroadcastNestedLoopJoin Cross BuildLeft (13)\n                                 :- BroadcastExchange (12)\n                                 :  +- Filter (11)\n                                 :     +- Scan csv  (3)\n                                 +- Project (8)\n                                    +- Range (7)\n+- == Initial Plan ==\n   HashAggregate (23)\n   +- Exchange (22)\n      +- HashAggregate (21)\n         +- InMemoryTableScan (1)\n               +- InMemoryRelation (2)\n                     +- AdaptiveSparkPlan (14)\n                     +- == Final Plan ==\n                        ResultQueryStage (10)\n                        +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                           :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                           :  +- BroadcastExchange (5)\n                           :     +- * Filter (4)\n                           :        +- Scan csv  (3)\n                           +- * Project (8)\n                              +- * Range (7)\n                     +- == Initial Plan ==\n                        BroadcastNestedLoopJoin Cross BuildLeft (13)\n                        :- BroadcastExchange (12)\n                        :  +- Filter (11)\n                        :     +- Scan csv  (3)\n                        +- Project (8)\n                           +- Range (7)\n\n\n(1) InMemoryTableScan\nOutput: []\n\n(2) InMemoryRelation\nArguments: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L], StorageLevel(memory, 1 replicas)\n\n(3) Scan csv \nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>\n\n(4) Filter [codegen id : 1]\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(5) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=933]\n\n(6) BroadcastQueryStage\nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: 0\n\n(7) Range\nOutput [1]: [id#292L]\nArguments: Range (0, 2000, step=1, splits=Some(16))\n\n(8) Project\nOutput [1]: [id#292L AS replica#293L]\nInput [1]: [id#292L]\n\n(9) BroadcastNestedLoopJoin [codegen id : 2]\nJoin type: Cross\nJoin condition: None\n\n(10) ResultQueryStage\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: 1\n\n(11) Filter\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(12) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=903]\n\n(13) BroadcastNestedLoopJoin\nJoin type: Cross\nJoin condition: None\n\n(14) AdaptiveSparkPlan\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: isFinalPlan=true\n\n(15) TableCacheQueryStage\nOutput: []\nArguments: 0\n\n(16) HashAggregate [codegen id : 1]\nInput: []\nKeys: []\nFunctions [1]: [partial_count(1)]\nAggregate Attributes [1]: [count#422L]\nResults [1]: [count#423L]\n\n(17) Exchange\nInput [1]: [count#423L]\nArguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=969]\n\n(18) ShuffleQueryStage\nOutput [1]: [count#423L]\nArguments: 1\n\n(19) HashAggregate [codegen id : 2]\nInput [1]: [count#423L]\nKeys: []\nFunctions [1]: [count(1)]\nAggregate Attributes [1]: [count(1)#331L]\nResults [1]: [count(1)#331L AS count#324L]\n\n(20) ResultQueryStage\nOutput [1]: [count#324L]\nArguments: 2\n\n(21) HashAggregate\nInput: []\nKeys: []\nFunctions [1]: [partial_count(1)]\nAggregate Attributes [1]: [count#422L]\nResults [1]: [count#423L]\n\n(22) Exchange\nInput [1]: [count#423L]\nArguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=916]\n\n(23) HashAggregate\nInput [1]: [count#423L]\nKeys: []\nFunctions [1]: [count(1)]\nAggregate Attributes [1]: [count(1)#331L]\nResults [1]: [count(1)#331L AS count#324L]\n\n(24) AdaptiveSparkPlan\nOutput [1]: [count#324L]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:06.272GMT",
+    "duration": 812,
+    "runningJobIds": [],
+    "successJobIds": [
+      36,
+      37,
+      38,
+      39
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 15,
+        "nodeName": "Range",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "2,000"
+          }
+        ],
+        "desc": "Range (0, 2000, step=1, splits=16)"
+      },
+      {
+        "nodeId": 14,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 2,
+        "metrics": [],
+        "desc": "Project [id#292L AS replica#293L]"
+      },
+      {
+        "nodeId": 13,
+        "nodeName": "Scan csv",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "number of files read",
+            "value": "1"
+          },
+          {
+            "name": "metadata time",
+            "value": "0 ms"
+          },
+          {
+            "name": "size of files read",
+            "value": "4.5 KiB"
+          }
+        ],
+        "desc": "FileScan csv [sepal_length#286,sepal_width#287,petal_length#288,petal_width#289,species#290] Batched: false, DataFilters: [isnotnull(species#290), NOT (species#290 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "150"
+          }
+        ],
+        "desc": "Filter (isnotnull(species#290) AND NOT (species#290 = class))"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "7 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "BroadcastExchange",
+        "metrics": [
+          {
+            "name": "time to broadcast",
+            "value": "2 ms"
+          },
+          {
+            "name": "time to build",
+            "value": "0 ms"
+          },
+          {
+            "name": "time to collect",
+            "value": "46 ms"
+          },
+          {
+            "name": "number of output rows",
+            "value": "150"
+          },
+          {
+            "name": "data size",
+            "value": "9.4 KiB"
+          }
+        ],
+        "desc": "BroadcastExchange IdentityBroadcastMode, [plan_id=933]"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "BroadcastNestedLoopJoin",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "BroadcastNestedLoopJoin BuildLeft, Cross"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n7.6 s (374 ms, 486 ms, 510 ms (stage 60.0: task 121))"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "InMemoryTableScan",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "InMemoryTableScan"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n264 ms (13 ms, 17 ms, 20 ms (stage 61.0: task 130))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "16"
+          }
+        ],
+        "desc": "HashAggregate(keys=[], functions=[partial_count(1)])"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n304 ms (15 ms, 19 ms, 24 ms (stage 61.0: task 139))"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "16"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "16"
+          },
+          {
+            "name": "local bytes read",
+            "value": "944.0 B"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "16"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "total (min, med, max (stageId: taskId))\n256.0 B (16.0 B, 16.0 B, 16.0 B (stage 61.0: task 136))"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "total (min, med, max (stageId: taskId))\n116 ms (4 ms, 7 ms, 9 ms (stage 61.0: task 144))"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "total (min, med, max (stageId: taskId))\n944.0 B (59.0 B, 59.0 B, 59.0 B (stage 61.0: task 136))"
+          }
+        ],
+        "desc": "Exchange SinglePartition, ENSURE_REQUIREMENTS, [plan_id=969]"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "time in aggregation build",
+            "value": "10 ms"
+          },
+          {
+            "name": "number of output rows",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[], functions=[count(1)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "10 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 5,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 5
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 9,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 9
+      },
+      {
+        "fromId": 12,
+        "toId": 10
+      },
+      {
+        "fromId": 13,
+        "toId": 12
+      },
+      {
+        "fromId": 14,
+        "toId": 9
+      },
+      {
+        "fromId": 15,
+        "toId": 14
+      }
+    ],
+    "queryId": "01a1c8fe-d4e0-78e1-a413-3bcd75cf9945",
+    "errorMessage": "",
+    "rootExecutionId": 13,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 14,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (25)\n+- == Final Plan ==\n   ResultQueryStage (21), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (20)\n      +- AQEShuffleRead (19), coalesced\n         +- ShuffleQueryStage (18), Statistics(sizeInBytes=3.0 KiB, rowCount=48)\n            +- Exchange (17)\n               +- * HashAggregate (16)\n                  +- TableCacheQueryStage (15), Statistics(sizeInBytes=16.4 MiB, rowCount=3.00E+5)\n                     +- InMemoryTableScan (1)\n                           +- InMemoryRelation (2)\n                                 +- AdaptiveSparkPlan (14)\n                                 +- == Final Plan ==\n                                    ResultQueryStage (10)\n                                    +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                                       :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                                       :  +- BroadcastExchange (5)\n                                       :     +- * Filter (4)\n                                       :        +- Scan csv  (3)\n                                       +- * Project (8)\n                                          +- * Range (7)\n                                 +- == Initial Plan ==\n                                    BroadcastNestedLoopJoin Cross BuildLeft (13)\n                                    :- BroadcastExchange (12)\n                                    :  +- Filter (11)\n                                    :     +- Scan csv  (3)\n                                    +- Project (8)\n                                       +- Range (7)\n+- == Initial Plan ==\n   HashAggregate (24)\n   +- Exchange (23)\n      +- HashAggregate (22)\n         +- InMemoryTableScan (1)\n               +- InMemoryRelation (2)\n                     +- AdaptiveSparkPlan (14)\n                     +- == Final Plan ==\n                        ResultQueryStage (10)\n                        +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                           :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                           :  +- BroadcastExchange (5)\n                           :     +- * Filter (4)\n                           :        +- Scan csv  (3)\n                           +- * Project (8)\n                              +- * Range (7)\n                     +- == Initial Plan ==\n                        BroadcastNestedLoopJoin Cross BuildLeft (13)\n                        :- BroadcastExchange (12)\n                        :  +- Filter (11)\n                        :     +- Scan csv  (3)\n                        +- Project (8)\n                           +- Range (7)\n\n\n(1) InMemoryTableScan\nOutput [3]: [sepal_width#287, petal_length#288, species#290]\nArguments: [sepal_width#287, petal_length#288, species#290]\n\n(2) InMemoryRelation\nArguments: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L], StorageLevel(memory, 1 replicas)\n\n(3) Scan csv \nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>\n\n(4) Filter [codegen id : 1]\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(5) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=933]\n\n(6) BroadcastQueryStage\nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: 0\n\n(7) Range\nOutput [1]: [id#292L]\nArguments: Range (0, 2000, step=1, splits=Some(16))\n\n(8) Project\nOutput [1]: [id#292L AS replica#293L]\nInput [1]: [id#292L]\n\n(9) BroadcastNestedLoopJoin [codegen id : 2]\nJoin type: Cross\nJoin condition: None\n\n(10) ResultQueryStage\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: 1\n\n(11) Filter\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(12) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=903]\n\n(13) BroadcastNestedLoopJoin\nJoin type: Cross\nJoin condition: None\n\n(14) AdaptiveSparkPlan\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: isFinalPlan=true\n\n(15) TableCacheQueryStage\nOutput [3]: [sepal_width#287, petal_length#288, species#290]\nArguments: 0\n\n(16) HashAggregate [codegen id : 1]\nInput [3]: [sepal_width#287, petal_length#288, species#290]\nKeys [1]: [species#290]\nFunctions [2]: [partial_avg(petal_length#288), partial_avg(sepal_width#287)]\nAggregate Attributes [4]: [sum#589, count#590L, sum#591, count#592L]\nResults [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\n\n(17) Exchange\nInput [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\nArguments: hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1022]\n\n(18) ShuffleQueryStage\nOutput [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\nArguments: 1\n\n(19) AQEShuffleRead\nInput [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\nArguments: coalesced\n\n(20) HashAggregate [codegen id : 2]\nInput [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\nKeys [1]: [species#290]\nFunctions [2]: [avg(petal_length#288), avg(sepal_width#287)]\nAggregate Attributes [2]: [avg(petal_length#288)#495, avg(sepal_width#287)#496]\nResults [3]: [species#290, avg(petal_length#288)#495 AS avg(petal_length)#497, avg(sepal_width#287)#496 AS avg(sepal_width)#498]\n\n(21) ResultQueryStage\nOutput [3]: [species#290, avg(petal_length)#497, avg(sepal_width)#498]\nArguments: 2\n\n(22) HashAggregate\nInput [3]: [sepal_width#287, petal_length#288, species#290]\nKeys [1]: [species#290]\nFunctions [2]: [partial_avg(petal_length#288), partial_avg(sepal_width#287)]\nAggregate Attributes [4]: [sum#589, count#590L, sum#591, count#592L]\nResults [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\n\n(23) Exchange\nInput [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\nArguments: hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=992]\n\n(24) HashAggregate\nInput [5]: [species#290, sum#593, count#594L, sum#595, count#596L]\nKeys [1]: [species#290]\nFunctions [2]: [avg(petal_length#288), avg(sepal_width#287)]\nAggregate Attributes [2]: [avg(petal_length#288)#495, avg(sepal_width#287)#496]\nResults [3]: [species#290, avg(petal_length#288)#495 AS avg(petal_length)#497, avg(sepal_width#287)#496 AS avg(sepal_width)#498]\n\n(25) AdaptiveSparkPlan\nOutput [3]: [species#290, avg(petal_length)#497, avg(sepal_width)#498]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:07.109GMT",
+    "duration": 408,
+    "runningJobIds": [],
+    "successJobIds": [
+      40,
+      41
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 16,
+        "nodeName": "Range",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "0"
+          }
+        ],
+        "desc": "Range (0, 2000, step=1, splits=16)"
+      },
+      {
+        "nodeId": 15,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 2,
+        "metrics": [],
+        "desc": "Project [id#292L AS replica#293L]"
+      },
+      {
+        "nodeId": 14,
+        "nodeName": "Scan csv",
+        "metrics": [],
+        "desc": "FileScan csv [sepal_length#286,sepal_width#287,petal_length#288,petal_width#289,species#290] Batched: false, DataFilters: [isnotnull(species#290), NOT (species#290 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>"
+      },
+      {
+        "nodeId": 13,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [],
+        "desc": "Filter (isnotnull(species#290) AND NOT (species#290 = class))"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "BroadcastExchange",
+        "metrics": [],
+        "desc": "BroadcastExchange IdentityBroadcastMode, [plan_id=933]"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "BroadcastNestedLoopJoin",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "0"
+          }
+        ],
+        "desc": "BroadcastNestedLoopJoin BuildLeft, Cross"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "0 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "InMemoryTableScan",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "InMemoryTableScan [sepal_width#287, petal_length#288, species#290]"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n1.0 s (49 ms, 66 ms, 88 ms (stage 64.0: task 152))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n4.0 MiB (256.0 KiB, 256.0 KiB, 256.0 KiB (stage 64.0: task 148))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "48"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#290], functions=[partial_avg(petal_length#288), partial_avg(sepal_width#287)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n1.4 s (69 ms, 89 ms, 112 ms (stage 64.0: task 152))"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "48"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "48"
+          },
+          {
+            "name": "local bytes read",
+            "value": "4.6 KiB"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "16"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "total (min, med, max (stageId: taskId))\n3.0 KiB (192.0 B, 192.0 B, 192.0 B (stage 64.0: task 148))"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "total (min, med, max (stageId: taskId))\n254 ms (8 ms, 15 ms, 40 ms (stage 64.0: task 158))"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "total (min, med, max (stageId: taskId))\n4.6 KiB (297.0 B, 297.0 B, 297.0 B (stage 64.0: task 148))"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1022]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "4.8 KiB"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "6 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1280.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#290], functions=[avg(petal_length#288), avg(sepal_width#287)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "8 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 13,
+        "toId": 11
+      },
+      {
+        "fromId": 14,
+        "toId": 13
+      },
+      {
+        "fromId": 15,
+        "toId": 10
+      },
+      {
+        "fromId": 16,
+        "toId": 15
+      }
+    ],
+    "queryId": "01a1c8fe-d81b-7017-9d23-8fb99c9a0f73",
+    "errorMessage": "",
+    "rootExecutionId": 14,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 15,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (25)\n+- == Final Plan ==\n   ResultQueryStage (21), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (20)\n      +- AQEShuffleRead (19), coalesced\n         +- ShuffleQueryStage (18), Statistics(sizeInBytes=3.0 KiB, rowCount=48)\n            +- Exchange (17)\n               +- * HashAggregate (16)\n                  +- TableCacheQueryStage (15), Statistics(sizeInBytes=16.4 MiB, rowCount=3.00E+5)\n                     +- InMemoryTableScan (1)\n                           +- InMemoryRelation (2)\n                                 +- AdaptiveSparkPlan (14)\n                                 +- == Final Plan ==\n                                    ResultQueryStage (10)\n                                    +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                                       :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                                       :  +- BroadcastExchange (5)\n                                       :     +- * Filter (4)\n                                       :        +- Scan csv  (3)\n                                       +- * Project (8)\n                                          +- * Range (7)\n                                 +- == Initial Plan ==\n                                    BroadcastNestedLoopJoin Cross BuildLeft (13)\n                                    :- BroadcastExchange (12)\n                                    :  +- Filter (11)\n                                    :     +- Scan csv  (3)\n                                    +- Project (8)\n                                       +- Range (7)\n+- == Initial Plan ==\n   HashAggregate (24)\n   +- Exchange (23)\n      +- HashAggregate (22)\n         +- InMemoryTableScan (1)\n               +- InMemoryRelation (2)\n                     +- AdaptiveSparkPlan (14)\n                     +- == Final Plan ==\n                        ResultQueryStage (10)\n                        +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                           :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                           :  +- BroadcastExchange (5)\n                           :     +- * Filter (4)\n                           :        +- Scan csv  (3)\n                           +- * Project (8)\n                              +- * Range (7)\n                     +- == Initial Plan ==\n                        BroadcastNestedLoopJoin Cross BuildLeft (13)\n                        :- BroadcastExchange (12)\n                        :  +- Filter (11)\n                        :     +- Scan csv  (3)\n                        +- Project (8)\n                           +- Range (7)\n\n\n(1) InMemoryTableScan\nOutput [3]: [sepal_width#287, petal_length#288, species#290]\nArguments: [sepal_width#287, petal_length#288, species#290]\n\n(2) InMemoryRelation\nArguments: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L], StorageLevel(memory, 1 replicas)\n\n(3) Scan csv \nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>\n\n(4) Filter [codegen id : 1]\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(5) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=933]\n\n(6) BroadcastQueryStage\nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: 0\n\n(7) Range\nOutput [1]: [id#292L]\nArguments: Range (0, 2000, step=1, splits=Some(16))\n\n(8) Project\nOutput [1]: [id#292L AS replica#293L]\nInput [1]: [id#292L]\n\n(9) BroadcastNestedLoopJoin [codegen id : 2]\nJoin type: Cross\nJoin condition: None\n\n(10) ResultQueryStage\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: 1\n\n(11) Filter\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(12) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=903]\n\n(13) BroadcastNestedLoopJoin\nJoin type: Cross\nJoin condition: None\n\n(14) AdaptiveSparkPlan\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: isFinalPlan=true\n\n(15) TableCacheQueryStage\nOutput [3]: [sepal_width#287, petal_length#288, species#290]\nArguments: 0\n\n(16) HashAggregate [codegen id : 1]\nInput [3]: [sepal_width#287, petal_length#288, species#290]\nKeys [1]: [species#290]\nFunctions [2]: [partial_avg(petal_length#288), partial_avg(sepal_width#287)]\nAggregate Attributes [4]: [sum#769, count#770L, sum#771, count#772L]\nResults [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\n\n(17) Exchange\nInput [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\nArguments: hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1079]\n\n(18) ShuffleQueryStage\nOutput [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\nArguments: 1\n\n(19) AQEShuffleRead\nInput [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\nArguments: coalesced\n\n(20) HashAggregate [codegen id : 2]\nInput [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\nKeys [1]: [species#290]\nFunctions [2]: [avg(petal_length#288), avg(sepal_width#287)]\nAggregate Attributes [2]: [avg(petal_length#288)#675, avg(sepal_width#287)#676]\nResults [3]: [species#290, avg(petal_length#288)#675 AS avg(petal_length)#677, avg(sepal_width#287)#676 AS avg(sepal_width)#678]\n\n(21) ResultQueryStage\nOutput [3]: [species#290, avg(petal_length)#677, avg(sepal_width)#678]\nArguments: 2\n\n(22) HashAggregate\nInput [3]: [sepal_width#287, petal_length#288, species#290]\nKeys [1]: [species#290]\nFunctions [2]: [partial_avg(petal_length#288), partial_avg(sepal_width#287)]\nAggregate Attributes [4]: [sum#769, count#770L, sum#771, count#772L]\nResults [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\n\n(23) Exchange\nInput [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\nArguments: hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1049]\n\n(24) HashAggregate\nInput [5]: [species#290, sum#773, count#774L, sum#775, count#776L]\nKeys [1]: [species#290]\nFunctions [2]: [avg(petal_length#288), avg(sepal_width#287)]\nAggregate Attributes [2]: [avg(petal_length#288)#675, avg(sepal_width#287)#676]\nResults [3]: [species#290, avg(petal_length#288)#675 AS avg(petal_length)#677, avg(sepal_width#287)#676 AS avg(sepal_width)#678]\n\n(25) AdaptiveSparkPlan\nOutput [3]: [species#290, avg(petal_length)#677, avg(sepal_width)#678]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:07.533GMT",
+    "duration": 263,
+    "runningJobIds": [],
+    "successJobIds": [
+      42,
+      43
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 16,
+        "nodeName": "Range",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "0"
+          }
+        ],
+        "desc": "Range (0, 2000, step=1, splits=16)"
+      },
+      {
+        "nodeId": 15,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 2,
+        "metrics": [],
+        "desc": "Project [id#292L AS replica#293L]"
+      },
+      {
+        "nodeId": 14,
+        "nodeName": "Scan csv",
+        "metrics": [],
+        "desc": "FileScan csv [sepal_length#286,sepal_width#287,petal_length#288,petal_width#289,species#290] Batched: false, DataFilters: [isnotnull(species#290), NOT (species#290 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>"
+      },
+      {
+        "nodeId": 13,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [],
+        "desc": "Filter (isnotnull(species#290) AND NOT (species#290 = class))"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "BroadcastExchange",
+        "metrics": [],
+        "desc": "BroadcastExchange IdentityBroadcastMode, [plan_id=933]"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "BroadcastNestedLoopJoin",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "0"
+          }
+        ],
+        "desc": "BroadcastNestedLoopJoin BuildLeft, Cross"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "0 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "InMemoryTableScan",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "InMemoryTableScan [sepal_width#287, petal_length#288, species#290]"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n193 ms (7 ms, 12 ms, 17 ms (stage 67.0: task 178))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n4.0 MiB (256.0 KiB, 256.0 KiB, 256.0 KiB (stage 67.0: task 175))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "48"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#290], functions=[partial_avg(petal_length#288), partial_avg(sepal_width#287)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n583 ms (25 ms, 35 ms, 50 ms (stage 67.0: task 169))"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "48"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "48"
+          },
+          {
+            "name": "local bytes read",
+            "value": "4.6 KiB"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "16"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "total (min, med, max (stageId: taskId))\n3.0 KiB (192.0 B, 192.0 B, 192.0 B (stage 67.0: task 175))"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "total (min, med, max (stageId: taskId))\n539 ms (14 ms, 36 ms, 48 ms (stage 67.0: task 168))"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "total (min, med, max (stageId: taskId))\n4.6 KiB (297.0 B, 297.0 B, 297.0 B (stage 67.0: task 175))"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1079]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "4.8 KiB"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "6 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1280.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#290], functions=[avg(petal_length#288), avg(sepal_width#287)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "7 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 13,
+        "toId": 11
+      },
+      {
+        "fromId": 14,
+        "toId": 13
+      },
+      {
+        "fromId": 15,
+        "toId": 10
+      },
+      {
+        "fromId": 16,
+        "toId": 15
+      }
+    ],
+    "queryId": "01a1c8fe-d9c5-746c-9349-e89b345aa5d0",
+    "errorMessage": "",
+    "rootExecutionId": 15,
+    "modifiedConfigs": {}
+  },
+  {
+    "id": 16,
+    "status": "COMPLETED",
+    "description": "collect at C:\\Users\\308638\\Script Automation\\AMITY-UNIVERSITY\\assignment3\\iris_spark.py:163",
+    "planDescription": "== Physical Plan ==\nAdaptiveSparkPlan (25)\n+- == Final Plan ==\n   ResultQueryStage (21), Statistics(sizeInBytes=8.0 EiB)\n   +- * HashAggregate (20)\n      +- AQEShuffleRead (19), coalesced\n         +- ShuffleQueryStage (18), Statistics(sizeInBytes=3.0 KiB, rowCount=48)\n            +- Exchange (17)\n               +- * HashAggregate (16)\n                  +- TableCacheQueryStage (15), Statistics(sizeInBytes=16.4 MiB, rowCount=3.00E+5)\n                     +- InMemoryTableScan (1)\n                           +- InMemoryRelation (2)\n                                 +- AdaptiveSparkPlan (14)\n                                 +- == Final Plan ==\n                                    ResultQueryStage (10)\n                                    +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                                       :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                                       :  +- BroadcastExchange (5)\n                                       :     +- * Filter (4)\n                                       :        +- Scan csv  (3)\n                                       +- * Project (8)\n                                          +- * Range (7)\n                                 +- == Initial Plan ==\n                                    BroadcastNestedLoopJoin Cross BuildLeft (13)\n                                    :- BroadcastExchange (12)\n                                    :  +- Filter (11)\n                                    :     +- Scan csv  (3)\n                                    +- Project (8)\n                                       +- Range (7)\n+- == Initial Plan ==\n   HashAggregate (24)\n   +- Exchange (23)\n      +- HashAggregate (22)\n         +- InMemoryTableScan (1)\n               +- InMemoryRelation (2)\n                     +- AdaptiveSparkPlan (14)\n                     +- == Final Plan ==\n                        ResultQueryStage (10)\n                        +- * BroadcastNestedLoopJoin Cross BuildLeft (9)\n                           :- BroadcastQueryStage (6), Statistics(sizeInBytes=9.4 KiB, rowCount=150)\n                           :  +- BroadcastExchange (5)\n                           :     +- * Filter (4)\n                           :        +- Scan csv  (3)\n                           +- * Project (8)\n                              +- * Range (7)\n                     +- == Initial Plan ==\n                        BroadcastNestedLoopJoin Cross BuildLeft (13)\n                        :- BroadcastExchange (12)\n                        :  +- Filter (11)\n                        :     +- Scan csv  (3)\n                        +- Project (8)\n                           +- Range (7)\n\n\n(1) InMemoryTableScan\nOutput [3]: [sepal_width#287, petal_length#288, species#290]\nArguments: [sepal_width#287, petal_length#288, species#290]\n\n(2) InMemoryRelation\nArguments: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L], StorageLevel(memory, 1 replicas)\n\n(3) Scan csv \nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nBatched: false\nLocation: InMemoryFileIndex [file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/data/iris.csv]\nPushedFilters: [IsNotNull(species), Not(EqualTo(species,class))]\nReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>\n\n(4) Filter [codegen id : 1]\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(5) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=933]\n\n(6) BroadcastQueryStage\nOutput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: 0\n\n(7) Range\nOutput [1]: [id#292L]\nArguments: Range (0, 2000, step=1, splits=Some(16))\n\n(8) Project\nOutput [1]: [id#292L AS replica#293L]\nInput [1]: [id#292L]\n\n(9) BroadcastNestedLoopJoin [codegen id : 2]\nJoin type: Cross\nJoin condition: None\n\n(10) ResultQueryStage\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: 1\n\n(11) Filter\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nCondition : (isnotnull(species#290) AND NOT (species#290 = class))\n\n(12) BroadcastExchange\nInput [5]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290]\nArguments: IdentityBroadcastMode, [plan_id=903]\n\n(13) BroadcastNestedLoopJoin\nJoin type: Cross\nJoin condition: None\n\n(14) AdaptiveSparkPlan\nOutput [6]: [sepal_length#286, sepal_width#287, petal_length#288, petal_width#289, species#290, replica#293L]\nArguments: isFinalPlan=true\n\n(15) TableCacheQueryStage\nOutput [3]: [sepal_width#287, petal_length#288, species#290]\nArguments: 0\n\n(16) HashAggregate [codegen id : 1]\nInput [3]: [sepal_width#287, petal_length#288, species#290]\nKeys [1]: [species#290]\nFunctions [2]: [partial_avg(petal_length#288), partial_avg(sepal_width#287)]\nAggregate Attributes [4]: [sum#949, count#950L, sum#951, count#952L]\nResults [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\n\n(17) Exchange\nInput [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\nArguments: hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1136]\n\n(18) ShuffleQueryStage\nOutput [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\nArguments: 1\n\n(19) AQEShuffleRead\nInput [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\nArguments: coalesced\n\n(20) HashAggregate [codegen id : 2]\nInput [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\nKeys [1]: [species#290]\nFunctions [2]: [avg(petal_length#288), avg(sepal_width#287)]\nAggregate Attributes [2]: [avg(petal_length#288)#855, avg(sepal_width#287)#856]\nResults [3]: [species#290, avg(petal_length#288)#855 AS avg(petal_length)#857, avg(sepal_width#287)#856 AS avg(sepal_width)#858]\n\n(21) ResultQueryStage\nOutput [3]: [species#290, avg(petal_length)#857, avg(sepal_width)#858]\nArguments: 2\n\n(22) HashAggregate\nInput [3]: [sepal_width#287, petal_length#288, species#290]\nKeys [1]: [species#290]\nFunctions [2]: [partial_avg(petal_length#288), partial_avg(sepal_width#287)]\nAggregate Attributes [4]: [sum#949, count#950L, sum#951, count#952L]\nResults [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\n\n(23) Exchange\nInput [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\nArguments: hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1106]\n\n(24) HashAggregate\nInput [5]: [species#290, sum#953, count#954L, sum#955, count#956L]\nKeys [1]: [species#290]\nFunctions [2]: [avg(petal_length#288), avg(sepal_width#287)]\nAggregate Attributes [2]: [avg(petal_length#288)#855, avg(sepal_width#287)#856]\nResults [3]: [species#290, avg(petal_length#288)#855 AS avg(petal_length)#857, avg(sepal_width#287)#856 AS avg(sepal_width)#858]\n\n(25) AdaptiveSparkPlan\nOutput [3]: [species#290, avg(petal_length)#857, avg(sepal_width)#858]\nArguments: isFinalPlan=true\n\n",
+    "submissionTime": "2026-11-11T05:05:07.812GMT",
+    "duration": 215,
+    "runningJobIds": [],
+    "successJobIds": [
+      44,
+      45
+    ],
+    "failedJobIds": [],
+    "nodes": [
+      {
+        "nodeId": 16,
+        "nodeName": "Range",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "0"
+          }
+        ],
+        "desc": "Range (0, 2000, step=1, splits=16)"
+      },
+      {
+        "nodeId": 15,
+        "nodeName": "Project",
+        "wholeStageCodegenId": 2,
+        "metrics": [],
+        "desc": "Project [id#292L AS replica#293L]"
+      },
+      {
+        "nodeId": 14,
+        "nodeName": "Scan csv",
+        "metrics": [],
+        "desc": "FileScan csv [sepal_length#286,sepal_width#287,petal_length#288,petal_width#289,species#290] Batched: false, DataFilters: [isnotnull(species#290), NOT (species#290 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>"
+      },
+      {
+        "nodeId": 13,
+        "nodeName": "Filter",
+        "wholeStageCodegenId": 1,
+        "metrics": [],
+        "desc": "Filter (isnotnull(species#290) AND NOT (species#290 = class))"
+      },
+      {
+        "nodeId": 12,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 11,
+        "nodeName": "BroadcastExchange",
+        "metrics": [],
+        "desc": "BroadcastExchange IdentityBroadcastMode, [plan_id=933]"
+      },
+      {
+        "nodeId": 10,
+        "nodeName": "BroadcastNestedLoopJoin",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "0"
+          }
+        ],
+        "desc": "BroadcastNestedLoopJoin BuildLeft, Cross"
+      },
+      {
+        "nodeId": 9,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "0 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 8,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      },
+      {
+        "nodeId": 7,
+        "nodeName": "InMemoryTableScan",
+        "metrics": [
+          {
+            "name": "number of output rows",
+            "value": "300,000"
+          }
+        ],
+        "desc": "InMemoryTableScan [sepal_width#287, petal_length#288, species#290]"
+      },
+      {
+        "nodeId": 6,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 1,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "total (min, med, max (stageId: taskId))\n100 ms (3 ms, 5 ms, 14 ms (stage 70.0: task 183))"
+          },
+          {
+            "name": "peak memory",
+            "value": "total (min, med, max (stageId: taskId))\n4.0 MiB (256.0 KiB, 256.0 KiB, 256.0 KiB (stage 70.0: task 193))"
+          },
+          {
+            "name": "number of output rows",
+            "value": "48"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "0"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#290], functions=[partial_avg(petal_length#288), partial_avg(sepal_width#287)])"
+      },
+      {
+        "nodeId": 5,
+        "nodeName": "WholeStageCodegen (1)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "total (min, med, max (stageId: taskId))\n413 ms (20 ms, 25 ms, 34 ms (stage 70.0: task 188))"
+          }
+        ],
+        "desc": "WholeStageCodegen (1)"
+      },
+      {
+        "nodeId": 4,
+        "nodeName": "Exchange",
+        "metrics": [
+          {
+            "name": "shuffle records written",
+            "value": "48"
+          },
+          {
+            "name": "remote merged reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "records read",
+            "value": "48"
+          },
+          {
+            "name": "local bytes read",
+            "value": "4.6 KiB"
+          },
+          {
+            "name": "merged fetch fallback count",
+            "value": "0"
+          },
+          {
+            "name": "local blocks read",
+            "value": "16"
+          },
+          {
+            "name": "remote merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "remote blocks read",
+            "value": "0"
+          },
+          {
+            "name": "data size",
+            "value": "total (min, med, max (stageId: taskId))\n3.0 KiB (192.0 B, 192.0 B, 192.0 B (stage 70.0: task 193))"
+          },
+          {
+            "name": "local merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged chunks fetched",
+            "value": "0"
+          },
+          {
+            "name": "shuffle write time",
+            "value": "total (min, med, max (stageId: taskId))\n247 ms (12 ms, 15 ms, 20 ms (stage 70.0: task 184))"
+          },
+          {
+            "name": "remote merged bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "local merged blocks fetched",
+            "value": "0"
+          },
+          {
+            "name": "corrupt merged block chunks",
+            "value": "0"
+          },
+          {
+            "name": "fetch wait time",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read",
+            "value": "0.0 B"
+          },
+          {
+            "name": "number of partitions",
+            "value": "8"
+          },
+          {
+            "name": "remote reqs duration",
+            "value": "0 ms"
+          },
+          {
+            "name": "remote bytes read to disk",
+            "value": "0.0 B"
+          },
+          {
+            "name": "shuffle bytes written",
+            "value": "total (min, med, max (stageId: taskId))\n4.6 KiB (297.0 B, 297.0 B, 297.0 B (stage 70.0: task 193))"
+          }
+        ],
+        "desc": "Exchange hashpartitioning(species#290, 8), ENSURE_REQUIREMENTS, [plan_id=1136]"
+      },
+      {
+        "nodeId": 3,
+        "nodeName": "AQEShuffleRead",
+        "metrics": [
+          {
+            "name": "number of partitions",
+            "value": "1"
+          },
+          {
+            "name": "number of empty partitions",
+            "value": "5"
+          },
+          {
+            "name": "partition data size",
+            "value": "4.8 KiB"
+          },
+          {
+            "name": "number of coalesced partitions",
+            "value": "1"
+          }
+        ],
+        "desc": "AQEShuffleRead coalesced"
+      },
+      {
+        "nodeId": 2,
+        "nodeName": "HashAggregate",
+        "wholeStageCodegenId": 2,
+        "metrics": [
+          {
+            "name": "spill size",
+            "value": "0.0 B"
+          },
+          {
+            "name": "time in aggregation build",
+            "value": "6 ms"
+          },
+          {
+            "name": "peak memory",
+            "value": "1280.0 KiB"
+          },
+          {
+            "name": "number of output rows",
+            "value": "3"
+          },
+          {
+            "name": "number of sort fallback tasks",
+            "value": "0"
+          },
+          {
+            "name": "avg hash probes per key",
+            "value": "1"
+          }
+        ],
+        "desc": "HashAggregate(keys=[species#290], functions=[avg(petal_length#288), avg(sepal_width#287)])"
+      },
+      {
+        "nodeId": 1,
+        "nodeName": "WholeStageCodegen (2)",
+        "metrics": [
+          {
+            "name": "duration",
+            "value": "7 ms"
+          }
+        ],
+        "desc": "WholeStageCodegen (2)"
+      },
+      {
+        "nodeId": 0,
+        "nodeName": "AdaptiveSparkPlan",
+        "metrics": [],
+        "desc": "AdaptiveSparkPlan isFinalPlan=true"
+      }
+    ],
+    "edges": [
+      {
+        "fromId": 2,
+        "toId": 0
+      },
+      {
+        "fromId": 3,
+        "toId": 2
+      },
+      {
+        "fromId": 4,
+        "toId": 3
+      },
+      {
+        "fromId": 6,
+        "toId": 4
+      },
+      {
+        "fromId": 7,
+        "toId": 6
+      },
+      {
+        "fromId": 8,
+        "toId": 7
+      },
+      {
+        "fromId": 10,
+        "toId": 8
+      },
+      {
+        "fromId": 11,
+        "toId": 10
+      },
+      {
+        "fromId": 13,
+        "toId": 11
+      },
+      {
+        "fromId": 14,
+        "toId": 13
+      },
+      {
+        "fromId": 15,
+        "toId": 10
+      },
+      {
+        "fromId": 16,
+        "toId": 15
+      }
+    ],
+    "queryId": "01a1c8fe-dad9-7fe6-b236-09696863e29f",
+    "errorMessage": "",
+    "rootExecutionId": 16,
+    "modifiedConfigs": {}
+  }
+]

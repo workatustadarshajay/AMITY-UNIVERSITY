@@ -1,0 +1,12 @@
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+  require_minimum_pandas_version()
+  Spark 4.3.0 on Java 22.0.2, parallelism 16
+2. RDD transformations and actions
+  RDD: 150 rows, 2 partitions, averages {'Iris-setosa': 1.464, 'Iris-versicolor': 4.26, 'Iris-virginica': 5.552}
+3. DataFrames and Spark SQL
+  DataFrame: schema struct<sepal_length:double,sepal_width:double,petal_length:double,petal_width:double,species:string>, filter kept 128 rows
+4. In-memory computation
+  in-memory: recompute 0.338s, cached 0.278s (1.21x) on 300,000 rows
+5. Spark UI export
+Done. Metrics: output\metrics.json  Lineage: output\lineage.txt

@@ -1,0 +1,82 @@
+===== RDD: reduceByKey_lineage =====
+(2) PythonRDD[9] at collect at C:\Users\308638\Script Automation\AMITY-UNIVERSITY\assignment3\iris_spark.py:75 []
+ |  MapPartitionsRDD[8] at mapPartitions at PythonRDD.scala:197 []
+ |  ShuffledRDD[7] at partitionBy at <unknown>:0 []
+ +-(2) PairwiseRDD[6] at reduceByKey at C:\Users\308638\Script Automation\AMITY-UNIVERSITY\assignment3\iris_spark.py:74 []
+    |  PythonRDD[5] at reduceByKey at C:\Users\308638\Script Automation\AMITY-UNIVERSITY\assignment3\iris_spark.py:74 []
+    |  data\iris.csv MapPartitionsRDD[1] at textFile at <unknown>:0 []
+    |  data\iris.csv HadoopRDD[0] at textFile at <unknown>:0 []
+
+===== RDD: groupByKey_lineage =====
+(2) PythonRDD[15] at collect at C:\Users\308638\Script Automation\AMITY-UNIVERSITY\assignment3\iris_spark.py:80 []
+ |  MapPartitionsRDD[14] at mapPartitions at PythonRDD.scala:197 []
+ |  ShuffledRDD[13] at partitionBy at <unknown>:0 []
+ +-(2) PairwiseRDD[12] at groupByKey at C:\Users\308638\Script Automation\AMITY-UNIVERSITY\assignment3\iris_spark.py:79 []
+    |  PythonRDD[11] at groupByKey at C:\Users\308638\Script Automation\AMITY-UNIVERSITY\assignment3\iris_spark.py:79 []
+    |  data\iris.csv MapPartitionsRDD[1] at textFile at <unknown>:0 []
+    |  data\iris.csv HadoopRDD[0] at textFile at <unknown>:0 []
+
+===== DataFrame: dataframe_aggregation_plan =====
+== Parsed Logical Plan ==
+'Sort ['species ASC NULLS FIRST], true
++- 'Aggregate ['species], ['species, 'ROUND('AVG('petal_length), 3) AS avg_petal_length#139]
+   +- 'UnresolvedRelation [iris], [], false
+
+== Analyzed Logical Plan ==
+species: string, avg_petal_length: double
+Sort [species#4 ASC NULLS FIRST], true
++- Aggregate [species#4], [species#4, round(avg(petal_length#2), 3) AS avg_petal_length#139]
+   +- SubqueryAlias iris
+      +- View (`iris`, [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4])
+         +- Filter NOT (species#4 = class)
+            +- Relation [sepal_length#0,sepal_width#1,petal_length#2,petal_width#3,species#4] csv
+
+== Optimized Logical Plan ==
+Sort [species#4 ASC NULLS FIRST], true
++- Aggregate [species#4], [species#4, round(avg(petal_length#2), 3) AS avg_petal_length#139]
+   +- Project [petal_length#2, species#4]
+      +- Filter (isnotnull(species#4) AND NOT (species#4 = class))
+         +- Relation [sepal_length#0,sepal_width#1,petal_length#2,petal_width#3,species#4] csv
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- Sort [species#4 ASC NULLS FIRST], true, 0
+   +- Exchange rangepartitioning(species#4 ASC NULLS FIRST, 8), ENSURE_REQUIREMENTS, [plan_id=521]
+      +- HashAggregate(keys=[species#4], functions=[avg(petal_length#2)], output=[species#4, avg_petal_length#139])
+         +- Exchange hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=518]
+            +- HashAggregate(keys=[species#4], functions=[partial_avg(petal_length#2)], output=[species#4, sum#147, count#148L])
+               +- Filter (isnotnull(species#4) AND NOT (species#4 = class))
+                  +- FileScan csv [petal_length#2,species#4] Batched: false, DataFilters: [isnotnull(species#4), NOT (species#4 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<petal_length:double,species:string>
+
+
+===== DataFrame: window_query_plan =====
+== Parsed Logical Plan ==
+'Project ['species, 'sepal_length, 'ROW_NUMBER() windowspecdefinition('species, 'sepal_length DESC NULLS LAST, unspecifiedframe$()) AS rank#149]
++- 'UnresolvedRelation [iris], [], false
+
+== Analyzed Logical Plan ==
+species: string, sepal_length: double, rank: int
+Project [species#4, sepal_length#0, rank#149]
++- Project [species#4, sepal_length#0, rank#149, rank#149]
+   +- Window [row_number() windowspecdefinition(species#4, sepal_length#0 DESC NULLS LAST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS rank#149], [species#4], [sepal_length#0 DESC NULLS LAST]
+      +- Project [species#4, sepal_length#0]
+         +- SubqueryAlias iris
+            +- View (`iris`, [sepal_length#0, sepal_width#1, petal_length#2, petal_width#3, species#4])
+               +- Filter NOT (species#4 = class)
+                  +- Relation [sepal_length#0,sepal_width#1,petal_length#2,petal_width#3,species#4] csv
+
+== Optimized Logical Plan ==
+Window [row_number() windowspecdefinition(species#4, sepal_length#0 DESC NULLS LAST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS rank#149], [species#4], [sepal_length#0 DESC NULLS LAST]
++- Project [species#4, sepal_length#0]
+   +- Filter (isnotnull(species#4) AND NOT (species#4 = class))
+      +- Relation [sepal_length#0,sepal_width#1,petal_length#2,petal_width#3,species#4] csv
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- Window [row_number() windowspecdefinition(species#4, sepal_length#0 DESC NULLS LAST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS rank#149], [species#4], [sepal_length#0 DESC NULLS LAST]
+   +- Sort [species#4 ASC NULLS FIRST, sepal_length#0 DESC NULLS LAST], false, 0
+      +- Exchange hashpartitioning(species#4, 8), ENSURE_REQUIREMENTS, [plan_id=546]
+         +- Project [species#4, sepal_length#0]
+            +- Filter (isnotnull(species#4) AND NOT (species#4 = class))
+               +- FileScan csv [sepal_length#0,species#4] Batched: false, DataFilters: [isnotnull(species#4), NOT (species#4 = class)], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/C:/Users/308638/Script Automation/AMITY-UNIVERSITY/assignment3/d..., PartitionFilters: [], PushedFilters: [IsNotNull(species), Not(EqualTo(species,class))], ReadSchema: struct<sepal_length:double,species:string>
+
