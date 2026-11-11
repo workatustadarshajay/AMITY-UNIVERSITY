@@ -1,0 +1,21 @@
+1. Load and clean
+  removed 135,080 rows: missing CustomerID/Description
+  removed   8,905 rows: cancellations (InvoiceNo starts with C)
+  removed   1,554 rows: non-product StockCode
+  removed      33 rows: Quantity <= 0 or UnitPrice <= 0
+  removed   5,187 rows: exact duplicate rows
+  kept 391,150 rows
+2. Build customer dataset (features before 2011-10-01, label from after)
+  3,613 customers, high-value threshold 516.24
+3. Supervised classification
+  logistic_regression: accuracy=0.790, precision=0.570, recall=0.642, f1=0.604, roc_auc=0.835
+  decision_tree: accuracy=0.705, precision=0.448, recall=0.779, f1=0.569, roc_auc=0.794
+4. K-means and DBSCAN
+  best k=2, DBSCAN clusters=2 noise=6.0%
+5. Streaming clustering (monthly micro-batches)
+  13 monthly batches, 18,402 invoices
+6. Feature extraction and subspace clustering
+  PCA components=3 silhouette full=0.344 pca=0.373
+7. Collaborative filtering
+  users=1000 CF={'precision_at_n': 0.081, 'recall_at_n': 0.02748911023201805, 'hit_rate': 0.283} POP={'precision_at_n': 0.0436, 'recall_at_n': 0.014205416415317947, 'hit_rate': 0.182}
+Done. Metrics: output\metrics.json  Figures: output\figures

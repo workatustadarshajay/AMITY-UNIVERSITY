@@ -1,0 +1,368 @@
+{
+  "data": {
+    "clean_rows": 391150,
+    "customers": 4334,
+    "invoices": 18402
+  },
+  "labels": {
+    "customers": 3613,
+    "high_value_threshold": 516.24,
+    "high_value_customers": 904
+  },
+  "classification": {
+    "models": {
+      "logistic_regression": {
+        "accuracy": 0.7896678966789668,
+        "precision": 0.5704918032786885,
+        "recall": 0.6420664206642066,
+        "f1": 0.6041666666666666,
+        "roc_auc": 0.8349786449894019,
+        "confusion_matrix": [
+          [
+            682,
+            131
+          ],
+          [
+            97,
+            174
+          ]
+        ]
+      },
+      "decision_tree": {
+        "accuracy": 0.7047970479704797,
+        "precision": 0.44798301486199577,
+        "recall": 0.7785977859778598,
+        "f1": 0.568733153638814,
+        "roc_auc": 0.7941590301511872,
+        "confusion_matrix": [
+          [
+            553,
+            260
+          ],
+          [
+            60,
+            211
+          ]
+        ]
+      }
+    },
+    "tree_feature_importance": {
+      "recency_days": 0.020108469287610252,
+      "frequency": 0.0,
+      "monetary": 0.8496904269686758,
+      "avg_order_value": 0.0203628077411322,
+      "distinct_products": 0.025678391263597444,
+      "avg_units_per_line": 0.03239735382789297,
+      "active_months": 0.0,
+      "tenure_days": 0.05176255091109122
+    },
+    "train_size": 2529,
+    "test_size": 1084,
+    "positive_rate": 0.25020758372543594
+  },
+  "kmeans": {
+    "selection": [
+      {
+        "k": 2,
+        "inertia": 11050.43725750273,
+        "silhouette": 0.3438190570941759,
+        "davies_bouldin": 1.131221634182893
+      },
+      {
+        "k": 3,
+        "inertia": 8966.712503068884,
+        "silhouette": 0.25415088355549514,
+        "davies_bouldin": 1.2884450085446957
+      },
+      {
+        "k": 4,
+        "inertia": 7766.186392050224,
+        "silhouette": 0.2592197046550503,
+        "davies_bouldin": 1.2806491723709788
+      },
+      {
+        "k": 5,
+        "inertia": 6870.911357316876,
+        "silhouette": 0.23728829292333853,
+        "davies_bouldin": 1.245168397088725
+      },
+      {
+        "k": 6,
+        "inertia": 6121.900284417395,
+        "silhouette": 0.23846353307661133,
+        "davies_bouldin": 1.2120746883928535
+      },
+      {
+        "k": 7,
+        "inertia": 5647.949187569922,
+        "silhouette": 0.2279357129317812,
+        "davies_bouldin": 1.23535373751087
+      },
+      {
+        "k": 8,
+        "inertia": 5317.949718740503,
+        "silhouette": 0.2276235868269892,
+        "davies_bouldin": 1.2189669264997907
+      }
+    ],
+    "best_k": 2,
+    "profiles": [
+      {
+        "index": 0,
+        "customers": 1563,
+        "recency_days": 22.0,
+        "frequency": 4.0,
+        "monetary": 1610.15,
+        "avg_order_value": 381.12,
+        "distinct_products": 70.0,
+        "future_spend": 437.12
+      },
+      {
+        "index": 1,
+        "customers": 2050,
+        "recency_days": 122.0,
+        "frequency": 1.0,
+        "monetary": 306.46,
+        "avg_order_value": 211.06,
+        "distinct_products": 17.0,
+        "future_spend": 0.0
+      }
+    ]
+  },
+  "dbscan": {
+    "eps": 0.6879049302840317,
+    "min_samples": 5,
+    "clusters": 2,
+    "noise_share": 0.0603376695267091,
+    "silhouette_non_noise": 0.24740903021797733
+  },
+  "streaming": [
+    {
+      "month": "2010-12",
+      "invoices": 1394,
+      "centroid_shift": 0.0,
+      "silhouette": 0.3078083626789494
+    },
+    {
+      "month": "2011-01",
+      "invoices": 983,
+      "centroid_shift": 0.09088970069066404,
+      "silhouette": 0.2832292213975614
+    },
+    {
+      "month": "2011-02",
+      "invoices": 992,
+      "centroid_shift": 0.043566594160042896,
+      "silhouette": 0.27703870457545876
+    },
+    {
+      "month": "2011-03",
+      "invoices": 1312,
+      "centroid_shift": 0.038392469802128126,
+      "silhouette": 0.290450857593048
+    },
+    {
+      "month": "2011-04",
+      "invoices": 1139,
+      "centroid_shift": 0.01735123112069121,
+      "silhouette": 0.29497388458150814
+    },
+    {
+      "month": "2011-05",
+      "invoices": 1544,
+      "centroid_shift": 0.017290666564597084,
+      "silhouette": 0.28637215010797407
+    },
+    {
+      "month": "2011-06",
+      "invoices": 1390,
+      "centroid_shift": 0.01386756433984542,
+      "silhouette": 0.2890846498263635
+    },
+    {
+      "month": "2011-07",
+      "invoices": 1321,
+      "centroid_shift": 0.013897068628837416,
+      "silhouette": 0.27417309314822624
+    },
+    {
+      "month": "2011-08",
+      "invoices": 1267,
+      "centroid_shift": 0.014429121434229484,
+      "silhouette": 0.28589251660686005
+    },
+    {
+      "month": "2011-09",
+      "invoices": 1739,
+      "centroid_shift": 0.019509874482820724,
+      "silhouette": 0.2907599416486
+    },
+    {
+      "month": "2011-10",
+      "invoices": 1903,
+      "centroid_shift": 0.01504508211716328,
+      "silhouette": 0.29061938443224666
+    },
+    {
+      "month": "2011-11",
+      "invoices": 2642,
+      "centroid_shift": 0.01672724947740316,
+      "silhouette": 0.2939441393781977
+    },
+    {
+      "month": "2011-12",
+      "invoices": 776,
+      "centroid_shift": 0.006837591605131946,
+      "silhouette": 0.2731588887461197
+    }
+  ],
+  "subspace": {
+    "pca_components": 3,
+    "pca_explained_cumulative": [
+      0.6008034293487649,
+      0.7954013566879927,
+      0.9216693169025162,
+      0.9994094781771236,
+      1.0
+    ],
+    "silhouette_full_space": 0.3438190570941759,
+    "silhouette_pca_space": 0.3725781332693653,
+    "pair_ranking": [
+      {
+        "subspace": "frequency + monetary",
+        "silhouette": 0.5359721064622097
+      },
+      {
+        "subspace": "frequency + distinct_products",
+        "silhouette": 0.4838465002258309
+      },
+      {
+        "subspace": "recency_days + frequency",
+        "silhouette": 0.4760215280204317
+      },
+      {
+        "subspace": "monetary + distinct_products",
+        "silhouette": 0.46887609654431955
+      },
+      {
+        "subspace": "monetary + avg_order_value",
+        "silhouette": 0.43793875598897386
+      },
+      {
+        "subspace": "recency_days + monetary",
+        "silhouette": 0.4374257012438775
+      },
+      {
+        "subspace": "recency_days + distinct_products",
+        "silhouette": 0.4038703357777709
+      },
+      {
+        "subspace": "frequency + avg_order_value",
+        "silhouette": 0.39807539392425484
+      },
+      {
+        "subspace": "avg_order_value + distinct_products",
+        "silhouette": 0.3895450779676651
+      },
+      {
+        "subspace": "recency_days + avg_order_value",
+        "silhouette": 0.38641326476285964
+      }
+    ],
+    "pca_loadings": {
+      "recency_days": {
+        "PC1": -0.349,
+        "PC2": 0.499,
+        "PC3": 0.778
+      },
+      "frequency": {
+        "PC1": 0.467,
+        "PC2": -0.418,
+        "PC3": 0.391
+      },
+      "monetary": {
+        "PC1": 0.554,
+        "PC2": 0.168,
+        "PC3": 0.071
+      },
+      "avg_order_value": {
+        "PC1": 0.363,
+        "PC2": 0.74,
+        "PC3": -0.328
+      },
+      "distinct_products": {
+        "PC1": 0.471,
+        "PC2": 0.017,
+        "PC3": 0.359
+      }
+    }
+  },
+  "collaborative_filtering": {
+    "users_evaluated": 1000,
+    "items": 500,
+    "top_n": 5,
+    "item_knn_cosine": {
+      "precision_at_n": 0.081,
+      "recall_at_n": 0.02748911023201805,
+      "hit_rate": 0.283
+    },
+    "popularity_baseline": {
+      "precision_at_n": 0.0436,
+      "recall_at_n": 0.014205416415317947,
+      "hit_rate": 0.182
+    },
+    "examples": [
+      {
+        "customer": "12347",
+        "bought_before": [
+          "REGENCY CAKESTAND 3 TIER",
+          "ROSES REGENCY TEACUP AND SAUCER",
+          "ALARM CLOCK BAKELIKE RED",
+          "60 TEATIME FAIRY CAKE CASES",
+          "ALARM CLOCK BAKELIKE GREEN"
+        ],
+        "recommended": [
+          "PACK OF 72 RETROSPOT CAKE CASES",
+          "GREEN REGENCY TEACUP AND SAUCER",
+          "SET OF 3 REGENCY CAKE TINS",
+          "LUNCH BAG RED RETROSPOT",
+          "LUNCH BAG DOILEY PATTERN"
+        ]
+      },
+      {
+        "customer": "12352",
+        "bought_before": [
+          "REGENCY CAKESTAND 3 TIER",
+          "SET OF 3 CAKE TINS PANTRY DESIGN",
+          "SPOTTY BUNTING",
+          "SET OF 4 PANTRY JELLY MOULDS",
+          "HOME BUILDING BLOCK WORD"
+        ],
+        "recommended": [
+          "RECIPE BOX PANTRY YELLOW DESIGN",
+          "JAM MAKING SET WITH JARS",
+          "PACK OF 72 RETROSPOT CAKE CASES",
+          "JAM MAKING SET PRINTED",
+          "WHITE HANGING HEART T-LIGHT HOLDER"
+        ]
+      },
+      {
+        "customer": "12356",
+        "bought_before": [
+          "REGENCY CAKESTAND 3 TIER",
+          "PACK OF 72 RETROSPOT CAKE CASES",
+          "ROSES REGENCY TEACUP AND SAUCER",
+          "SET/20 RED RETROSPOT PAPER NAPKINS",
+          "60 TEATIME FAIRY CAKE CASES"
+        ],
+        "recommended": [
+          "PACK OF 60 PINK PAISLEY CAKE CASES",
+          "PACK OF 60 DINOSAUR CAKE CASES",
+          "SET/10 RED POLKADOT PARTY CANDLES",
+          "PACK OF 60 SPACEBOY CAKE CASES",
+          "GINGERBREAD MAN COOKIE CUTTER"
+        ]
+      }
+    ]
+  }
+}
