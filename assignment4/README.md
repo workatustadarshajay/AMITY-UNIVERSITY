@@ -53,7 +53,13 @@ python run_pipeline.py --batch-only          # batch pipeline only; runs on Wind
 
 The real-time pipeline uses Spark Structured Streaming. On Windows, Spark's streaming checkpoints need
 Hadoop native binaries (`winutils.exe` and `hadoop.dll`). Without them the query fails with
-`UnsatisfiedLinkError: NativeIO$Windows.access0`. On Linux (or in Google Colab) this is not needed:
+`UnsatisfiedLinkError: NativeIO$Windows.access0`. On Linux (or in Google Colab) this is not needed.
+
+**Easiest: open `run_in_colab.ipynb` in Google Colab and choose Runtime > Run all.** It installs Java 17 and PySpark,
+clones this repository (it must be public), downloads the data, runs the tests and the streaming pipeline,
+builds the report and downloads the outputs.
+
+On Linux:
 
 ```bash
 python run_pipeline.py                       # local mode: producer -> socket -> Spark Streaming -> compare
