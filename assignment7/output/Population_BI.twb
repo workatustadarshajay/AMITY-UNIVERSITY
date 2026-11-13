@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <datasources>
+    <datasource name='population_country_year' caption='World Bank population by country and year' inline='true' version='18.1'>
+      <connection class='textscan' directory='Data' filename="population_country_year.csv" password='' server=''>
+        <relation name='population_country_year' table='[population_country_year.csv]' type='table' />
+      </connection>
+      <aliases enabled='no' />
+<column datatype='string' name='[country]' role='dimension' type='nominal' />
+<column datatype='string' name='[iso3]' role='dimension' type='nominal' />
+<column datatype='string' name='[region]' role='dimension' type='nominal' />
+<column datatype='string' name='[income_group]' role='dimension' type='nominal' />
+<column datatype='integer' name='[year]' role='dimension' type='ordinal' />
+<column datatype='integer' name='[population]' role='measure' type='quantitative' />
+<column datatype='integer' name='[pop_rank_in_year]' role='measure' type='quantitative' />
+<column datatype='integer' name='[Pop first year]' role='measure' type='quantitative' caption="Population 1960"><calculation class='tableau' formula="IF [year] = 1960 THEN [population] END" /></column>
+<column datatype='integer' name='[Pop latest year]' role='measure' type='quantitative' caption="Population 2023"><calculation class='tableau' formula="IF [year] = 2023 THEN [population] END" /></column>
+<column datatype='real' name='[Population (millions)]' role='measure' type='quantitative' caption="Population (millions)"><calculation class='tableau' formula="[population] / 1000000" /></column>
+    </datasource>
+  </datasources>
+  <worksheets>
+<worksheet name="Population trend by region">
+  <table>
+    <view><filter class='quantitative' column="[population_country_year].[year]" included-values='in-range' min='1960' max='2023' /></view>
+    <panes><pane><view /><mark class='Line' /><encodings><color column='[population_country_year].[region]' /></encodings></pane></panes>
+    <rows>[population_country_year].[sum:population:qk]</rows>
+    <cols>[population_country_year].[yr:year:ok]</cols>
+    
+  </table>
+</worksheet>
+<worksheet name="Top 10 countries, latest year">
+  <table>
+    <view><filter class='quantitative' column="[population_country_year].[year]" included-values='in-range' min='2023' max='2023' /><filter class='quantitative' column="[population_country_year].[pop_rank_in_year]" included-values='in-range' min='1' max='10' /></view>
+    <panes><pane><view /><mark class='Bar' /><encodings><color column='[population_country_year].[region]' /></encodings></pane></panes>
+    <rows>[population_country_year].[none:country:nk]</rows>
+    <cols>[population_country_year].[sum:population:qk]</cols>
+    <sort column="[population_country_year].[sum:population:qk]" direction='DESC' using="[population_country_year].[sum:population:qk]" />
+  </table>
+</worksheet>
+<worksheet name="Population 1960 vs latest">
+  <table>
+    <view></view>
+    <panes><pane><view /><mark class='Circle' /><encodings><color column='[population_country_year].[region]' /><detail column='[population_country_year].[country]' /></encodings></pane></panes>
+    <rows>[population_country_year].[sum:Pop latest year:qk]</rows>
+    <cols>[population_country_year].[sum:Pop first year:qk]</cols>
+    
+  </table>
+</worksheet>
+<worksheet name="Population by income group, latest">
+  <table>
+    <view><filter class='quantitative' column="[population_country_year].[year]" included-values='in-range' min='2023' max='2023' /></view>
+    <panes><pane><view /><mark class='Bar' /><encodings></encodings></pane></panes>
+    <rows>[population_country_year].[none:income_group:nk]</rows>
+    <cols>[population_country_year].[sum:population:qk]</cols>
+    
+  </table>
+</worksheet>
+  </worksheets>
+  <dashboards>
+<dashboard name='Population dashboard'>
+  <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' />
+  <zones>
+    <zone h='100000' id='1' type-v='layout-basic' w='100000' x='0' y='0'>
+      <zone h='50000' id='2' name='Population trend by region' w='100000' x='0' y='0' />
+      <zone h='50000' id='3' name='Top 10 countries, latest year' w='50000' x='0' y='50000' />
+      <zone h='50000' id='4' name='Population 1960 vs latest' w='50000' x='50000' y='50000' />
+    </zone>
+  </zones>
+</dashboard>
+  </dashboards>
+  <windows source='worksheets'>
+    <window class='worksheet' name='Population trend by region' />
+  </windows>
+</workbook>

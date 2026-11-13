@@ -9,3 +9,8 @@ data/
 # assignment 5 : keep the summary CSVs, not the protected data
 !assignment5/output/**/*.csv
 assignment5/output/protected/*.csv
+
+# assignment 7 : keep the tidy World Bank CSV used by the Tableau workbook
+!assignment7/output/data/*.csv
+!assignment7/output/data/
+!assignment7/output/data/*.csv

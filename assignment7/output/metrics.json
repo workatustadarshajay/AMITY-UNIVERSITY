@@ -1,0 +1,97 @@
+{
+  "first_year": 1960,
+  "last_year": 2023,
+  "world_population_first": 3010810885,
+  "world_population_last": 8039550134,
+  "world_growth_pct": 167.0,
+  "countries": 217,
+  "top10_last_year": [
+    {
+      "country": "India",
+      "population": 1438069596
+    },
+    {
+      "country": "China",
+      "population": 1410710000
+    },
+    {
+      "country": "United States",
+      "population": 336755052
+    },
+    {
+      "country": "Indonesia",
+      "population": 281190067
+    },
+    {
+      "country": "Pakistan",
+      "population": 247504495
+    },
+    {
+      "country": "Nigeria",
+      "population": 227882945
+    },
+    {
+      "country": "Brazil",
+      "population": 211140729
+    },
+    {
+      "country": "Bangladesh",
+      "population": 171466990
+    },
+    {
+      "country": "Russian Federation",
+      "population": 143826130
+    },
+    {
+      "country": "Mexico",
+      "population": 129739759
+    }
+  ],
+  "region_population_last": {
+    "East Asia & Pacific": 2361068202,
+    "South Asia": 1662580579,
+    "Sub-Saharan Africa": 1258809472,
+    "Europe & Central Asia": 924805070,
+    "Middle East, North Africa, Afghanistan & Pakistan": 797801454,
+    "Latin America & Caribbean": 657616519,
+    "North America": 376868838
+  },
+  "region_growth_pct": {
+    "Sub-Saharan Africa": 452.8,
+    "Middle East, North Africa, Afghanistan & Pakistan": 405.2,
+    "South Asia": 227.3,
+    "Latin America & Caribbean": 200.8,
+    "East Asia & Pacific": 128.8,
+    "North America": 89.7,
+    "Europe & Central Asia": 38.5
+  },
+  "income_population_last": {
+    "Upper middle income": 3057927413,
+    "Lower middle income": 2869695351,
+    "High income": 1384765312,
+    "Low income": 727162058
+  },
+  "fastest_growth_multiple_top5": [
+    {
+      "country": "United Arab Emirates",
+      "multiple": 79.83
+    },
+    {
+      "country": "Qatar",
+      "multiple": 73.76
+    },
+    {
+      "country": "Sint Maarten (Dutch part)",
+      "multiple": 15.75
+    },
+    {
+      "country": "Kuwait",
+      "multiple": 15.6
+    },
+    {
+      "country": "Saudi Arabia",
+      "multiple": 13.84
+    }
+  ],
+  "countries_with_population_below_1m_last": 57
+}
