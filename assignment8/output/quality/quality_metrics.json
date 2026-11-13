@@ -1,0 +1,20 @@
+{
+  "raw_rows": 541909,
+  "rejects_by_reason": {
+    "cancellation": 9246,
+    "non_positive_price": 1184,
+    "non_product_code": 2347,
+    "non_positive_quantity": 1375
+  },
+  "kept_before_dedupe": 527757,
+  "exact_duplicates_removed": 5098,
+  "quantity_fence_iqr": 28.5,
+  "unit_price_fence_iqr": 8.45,
+  "clean_rows": 522659,
+  "outlier_quantity_rows": 26805,
+  "outlier_price_rows": 35748,
+  "missing_customer_rows": 131355,
+  "missing_description_rows": 0,
+  "sample_fraction": 1.0,
+  "sampled_rows": 522659
+}

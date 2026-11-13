@@ -1,0 +1,11 @@
+{
+  "ops": {
+    "U": 5392,
+    "D": 2709,
+    "I": 2709
+  },
+  "raw_line_rows_after_merge": 541909,
+  "day2_rows": 541909,
+  "rows_match": true,
+  "values_match": true
+}

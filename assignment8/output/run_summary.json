@@ -1,0 +1,49 @@
+{
+  "baskets": 22407,
+  "min_support": 0.02,
+  "max_len": 3,
+  "frequent_itemsets": 291,
+  "rules_min_conf_0.5": 41,
+  "glue_metrics": {
+    "raw_rows": 541909,
+    "rejects_by_reason": {
+      "cancellation": 9246,
+      "non_positive_price": 1184,
+      "non_product_code": 2347,
+      "non_positive_quantity": 1375
+    },
+    "kept_before_dedupe": 527757,
+    "exact_duplicates_removed": 5098,
+    "quantity_fence_iqr": 28.5,
+    "unit_price_fence_iqr": 8.45,
+    "clean_rows": 522659,
+    "outlier_quantity_rows": 26805,
+    "outlier_price_rows": 35748,
+    "missing_customer_rows": 131355,
+    "missing_description_rows": 0,
+    "sample_fraction": 1.0,
+    "sampled_rows": 522659
+  },
+  "cdc": {
+    "ops": {
+      "U": 5392,
+      "D": 2709,
+      "I": 2709
+    },
+    "raw_line_rows_after_merge": 541909,
+    "day2_rows": 541909,
+    "rows_match": true,
+    "values_match": true
+  },
+  "pairs_check": {
+    "python_pairs": 54,
+    "sql_pairs": 54,
+    "identical": true
+  },
+  "timings_s": {
+    "glue_clean_s": 28.1,
+    "warehouse_s": 9.8,
+    "apriori_s": 6.7,
+    "similarity_s": 0.3
+  }
+}

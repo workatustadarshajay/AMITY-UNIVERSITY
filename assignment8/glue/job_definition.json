@@ -1,0 +1,31 @@
+{
+  "_comment": "Input for: aws glue create-job --cli-input-json file://glue/job_definition.json . Replace every <placeholder>. Package the code first: zip -r glue_libs.zip pipeline/__init__.py pipeline/transform.py && aws s3 cp glue_libs.zip s3://<governance-bucket>/glue/ . Not yet created in AWS.",
+  "Name": "online-retail-clean-etl",
+  "Description": "Clean the UCI Online Retail raw lines: types, rejects, duplicates, outlier flags, optional sample.",
+  "Role": "arn:aws:iam::<account-id>:role/<glue-service-role>",
+  "Command": {
+    "Name": "glueetl",
+    "ScriptLocation": "s3://<governance-bucket>/glue/glue_etl_job.py",
+    "PythonVersion": "3"
+  },
+  "DefaultArguments": {
+    "--job-language": "python",
+    "--job-bookmark-option": "job-bookmark-enable",
+    "--extra-py-files": "s3://<governance-bucket>/glue/glue_libs.zip",
+    "--raw_path": "s3://<governance-bucket>/raw/day2/online_retail.csv",
+    "--processed_base": "s3://<governance-bucket>/processed/online_retail/",
+    "--sample_fraction": "1.0",
+    "--seed": "42",
+    "--TempDir": "s3://<governance-bucket>/glue/tmp/",
+    "--enable-metrics": "true",
+    "--enable-spark-ui": "true",
+    "--spark-event-logs-path": "s3://<governance-bucket>/glue/sparkui/",
+    "--enable-job-insights": "true"
+  },
+  "GlueVersion": "4.0",
+  "WorkerType": "G.1X",
+  "NumberOfWorkers": 2,
+  "Timeout": 60,
+  "MaxRetries": 1,
+  "ExecutionClass": "STANDARD"
+}

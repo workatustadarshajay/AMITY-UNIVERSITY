@@ -14,3 +14,7 @@ assignment5/output/protected/*.csv
 !assignment7/output/data/*.csv
 !assignment7/output/data/
 !assignment7/output/data/*.csv
+
+# assignment 8 : keep the summary outputs, not the S3 mirror or raw data
+assignment8/s3_local/
+!assignment8/output/**/*.csv
